@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Guida al rischio aeronautico</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
+    }
+
+    .filigrana {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('filigrana.png'); /* Sostituisci con il tuo file */
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.60;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .top-bar h1 {
+      margin: 0;
+      font-size: 20px;
+      color: #003333;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      font-size: 24px;
+      background-color: transparent;
+      color: #003333;
+      padding: 8px 12px;
+      border: none;
+      cursor: pointer;
+      z-index: 1100;
+      border-radius: 5px;
+    }
+
+    .toggle-btn:hover {
+      background-color: rgba(0, 128, 128, 0.1);
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
+      overflow: hidden;
+      transition: left 0.3s ease;
+      z-index: 900;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-top: 80px;
+      padding-left: 20px;
+    }
+
+    .sidebar a {
+      margin-top: 10px;
+      padding: 12px 0;
+      text-decoration: none;
+      font-size: 18px;
+      color: #003333;
+      text-align: left;
+      width: 100%;
+      transition: background-color 0.3s ease, padding-left 0.3s ease;
+    }
+
+    .sidebar a:hover {
+      background-color: rgba(0, 128, 128, 0.05);
+      padding-left: 10px;
+    }
+
+    .contenuto {
+      position: absolute;
+      top: 60px;
+      left: 250px;
+      right: 0;
+      bottom: 0;
+      padding: 0;
+      z-index: 1;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="filigrana"></div>
+
+  <div class="top-bar">
+    <h1>Guida al calcolo della gestione del rischio nel settore aeronautico</h1>
+  </div>
+
+  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+  <div id="sidebar" class="sidebar">
+    <a href="#" onclick="carica('home.html')">Home</a>
+    <a href="#" onclick="carica('riferimenti.html')">Riferimenti Normativi</a>
+    <a href="#" onclick="carica('matrice.html')">Matrice del Rischio</a>
+    <a href="#" onclick="carica('regola.html')">Regola Generale</a>
+    <a href="#" onclick="carica('bestpractice.html')">Best Practice Aereonautiche</a>
+    <a href="#" onclick="carica('download.html')">Download</a>
+    <a href="#" onclick="carica('valutazione.html')">Valutazione Finale</a>
+  </div>
+
+  <div class="contenuto">
+    <iframe id="frame" src="home.html"></iframe>
+  </div>
+
+  <script>
+    let sidebarVisible = false;
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      sidebarVisible = !sidebarVisible;
+      sidebar.style.left = sidebarVisible ? "0px" : "-250px";
+    }
+
+    function carica(pagina) {
+      document.getElementById("frame").src = pagina;
+    }
+  </script>
+
+</body>
+</html>

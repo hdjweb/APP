@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Valutazione Finale</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      background: 
+        linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9)),
+        url('filigrana.png') center/contain no-repeat;
+      background-blend-mode: lighten;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .contenuto-home {
+      position: relative;
+      padding: 0px 40px 40px 40px;
+      max-width: 800px;
+      z-index: 1;
+      text-align: justify;
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #006633;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 20px;
+      color: #333;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    label {
+      font-size: 18px;
+      color: #006633;
+      font-weight: bold;
+    }
+
+    select, textarea, input[type="text"], input[type="email"] {
+      font-size: 16px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background-color: #006633;
+      color: white;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+
+    button:hover {
+      background-color: #004d26;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contenuto-home">
+    <h2>Valutazione Finale</h2>
+    <p>
+      Ti chiediamo di valutare l'elaborato rispondendo alle seguenti domande. Il tuo feedback sarà inviato direttamente al nostro indirizzo email nel pieno rispetto della privacy.
+    </p>
+
+    <form action="mailto:hdjweb@gmail.com" method="post" enctype="text/plain">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="Nome" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="Email" required>
+
+      <label for="chiarezza">Quanto è chiaro l'elaborato?</label>
+      <select id="chiarezza" name="Chiarezza">
+        <option value="Molto chiaro">Molto chiaro</option>
+        <option value="Abbastanza chiaro">Abbastanza chiaro</option>
+        <option value="Poco chiaro">Poco chiaro</option>
+        <option value="Per niente chiaro">Per niente chiaro</option>
+      </select>
+
+      <label for="completezza">Quanto è completo il contenuto?</label>
+      <select id="completezza" name="Completezza">
+        <option value="Molto completo">Molto completo</option>
+        <option value="Abbastanza completo">Abbastanza completo</option>
+        <option value="Poco completo">Poco completo</option>
+        <option value="Incompleto">Incompleto</option>
+      </select>
+
+      <label for="utilità">Quanto è utile per te?</label>
+      <select id="utilità" name="Utilità">
+        <option value="Molto utile">Molto utile</option>
+        <option value="Abbastanza utile">Abbastanza utile</option>
+        <option value="Poco utile">Poco utile</option>
+        <option value="Inutile">Inutile</option>
+      </select>
+
+      <label for="feedback">Feedback aggiuntivo:</label>
+      <textarea id="feedback" name="Feedback"></textarea>
+
+      <button type="submit">Invia Valutazione</button>
+    </form>
+  </div>
+
+</body>
+</html>
