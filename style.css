@@ -1,0 +1,86 @@
+{
+  
+  /* Riprogetta la barra superiore */
+  .top-bar {
+    justify-content: flex-end; /* Sposta il titolo a destra */
+  }
+
+  .top-bar h1 {
+    font-size: 16px; /* Riduci la dimensione del titolo per schermi piccoli */
+    margin-right: 20px; /* Aggiungi un margine a destra */
+  }
+
+  /* Posiziona il pulsante del menu per renderlo più comodo */
+  .toggle-btn {
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    padding: 6px 10px;
+  }
+  
+  /* Nascondi la sidebar e posizionala sopra il contenuto */
+  .sidebar {
+    width: 100%;
+    left: -100%; /* La sposta completamente fuori dallo schermo */
+    padding-top: 60px; /* Lascia spazio per la barra superiore */
+    padding-left: 0;
+  }
+
+  /* Fai scorrere la sidebar sopra il contenuto */
+  .sidebar.active {
+    left: 0;
+  }
+  
+  /* Adatta il contenuto alla larghezza dello schermo */
+  .contenuto {
+    left: 0; /* Il contenuto occupa l'intera larghezza */
+    top: 60px; /* Si posiziona sotto la barra superiore */
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .sezione-contenuto {
+    padding: 0;
+  }
+  
+  /* Riduci il padding delle sezioni specifiche */
+  #riferimenti,
+  #regola,
+  #bestpractice,
+  #valutazione {
+    padding-top: 0px;
+  }
+
+  /* Ottimizza le tabelle per schermi piccoli */
+  .sezioni-affiancate {
+    flex-direction: column; /* Impila le tabelle una sopra l'altra */
+    gap: 20px;
+  }
+  
+  /* Riduci la dimensione dei font per maggiore leggibilità */
+  h2 {
+    font-size: 24px;
+  }
+  
+  p, ul, li {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .formula {
+    font-size: 18px;
+  }
+  
+  /* Regola la visualizzazione dei pulsanti e form */
+  .download-btn, #calcola-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  
+  .valutazione-style select,
+  .valutazione-style textarea,
+  .valutazione-style input {
+    font-size: 14px;
+  }
+}
