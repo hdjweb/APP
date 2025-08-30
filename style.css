@@ -14,11 +14,13 @@
     left: 0;
     right: 0;
     z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
 
   .top-bar h1 {
     font-size: 16px;
     margin-right: 20px;
+    white-space: nowrap;
   }
 
   /* Pulsante toggle menu */
@@ -29,6 +31,9 @@
     font-size: 20px;
     padding: 6px 10px;
     z-index: 1001;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
   }
 
   /* Sidebar */
@@ -41,8 +46,9 @@
     background-color: #ffffff;
     padding-top: 60px;
     padding-left: 0;
-    transition: left 0.3s ease;
+    transition: left 0.3s ease-in-out;
     z-index: 999;
+    overflow-y: auto;
   }
 
   .sidebar.active {
@@ -55,6 +61,7 @@
     top: 60px;
     left: 0;
     padding: 20px;
+    box-sizing: border-box;
   }
 
   .sezione-contenuto {
@@ -74,16 +81,20 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   /* Tipografia */
   h2 {
     font-size: 24px;
+    margin-bottom: 10px;
   }
 
   p, ul, li {
     font-size: 16px;
     line-height: 1.6;
+    word-break: break-word;
   }
 
   .formula {
@@ -95,11 +106,24 @@
   #calcola-btn {
     font-size: 16px;
     padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .download-btn:hover,
+  #calcola-btn:hover {
+    background-color: #0056b3;
   }
 
   .valutazione-style select,
   .valutazione-style textarea,
   .valutazione-style input {
     font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
