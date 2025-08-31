@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const contenuti = document.querySelectorAll('.sezione-contenuto');
   const links = document.querySelectorAll('.sidebar a');
   const calcolaBtn = document.getElementById('calcola-btn');
+  const homeLink = document.querySelector('.sidebar a[href="#home"]');
 
   // Gestisce il click del pulsante del menu per mostrare/nascondere la sidebar
   if (toggleBtn) {
@@ -22,11 +23,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Nasconde la sidebar sui dispositivi mobili dopo la selezione
     if (window.innerWidth <= 768) {
       sidebar.classList.remove('active');
-    }
-    // Scrolla in cima alla sezione
-    const contenutoContainer = document.querySelector('.contenuto');
-    if (contenutoContainer) {
-      contenutoContainer.scrollTop = 0;
     }
   }
 
@@ -91,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Mostra la pagina "home" all'avvio del sito
-  if (document.querySelector('.sidebar a[href="#home"]')) {
-      carica('home');
+  if (homeLink) {
+    carica('home');
   }
 });
