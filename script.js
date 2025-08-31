@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const contenuti = document.querySelectorAll('.sezione-contenuto');
   const links = document.querySelectorAll('.sidebar a');
   const calcolaBtn = document.getElementById('calcola-btn');
-  const homeLink = document.querySelector('.sidebar a[href="#home"]');
 
   // Gestisce il click del pulsante del menu per mostrare/nascondere la sidebar
   if (toggleBtn) {
@@ -92,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Mostra la pagina "home" all'avvio del sito
-  if (homeLink) {
-    carica('home');
+  if (document.querySelector('.sidebar a[href="#home"]')) {
+      carica('home');
   }
 });
