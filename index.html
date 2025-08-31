@@ -1,311 +1,370 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <title>Guida al rischio aeronautico</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Management</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="top-bar">
-        <h1>Guida al calcolo della gestione del rischio nel settore aeronautico</h1>
-    </div>
+    <div class="top-bar">
+        <h1>Manuale di Risk Management</h1>
+    </div>
 
-    <button class="toggle-btn">☰</button>
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
-    <div id="sidebar" class="sidebar">
-        <a href="#home">Home</a>
-        <a href="#riferimenti">Riferimenti Normativi</a>
-        <a href="#matrice">Matrice del Rischio</a>
-        <a href="#regola">Regola Generale</a>
-        <a href="#bestpractice">Best Practice Aereonautiche</a>
-        <a href="#download">Download</a>
-        <a href="#valutazione">Valutazione Finale</a>
-    </div>
+    <div class="sidebar" id="sidebar">
+        <a href="#introduzione" onclick="showSection('introduzione')">Introduzione</a>
+        <a href="#matrice" onclick="showSection('matrice')">Matrice di Rischio</a>
+        <a href="#probabilita" onclick="showSection('probabilita')">Livelli di Probabilità</a>
+        <a href="#impatto" onclick="showSection('impatto')">Livelli di Impatto</a>
+        <a href="#denominazione" onclick="showSection('denominazione')">Denominazione e Valori</a>
+        <a href="#valutazione" onclick="showSection('valutazione')">Valutazione del Rischio</a>
+        <a href="#regola" onclick="showSection('regola')">Regola del Rischio</a>
+        <a href="#bestpractice" onclick="showSection('bestpractice')">Best Practice</a>
+        <a href="#riferimenti" onclick="showSection('riferimenti')">Riferimenti Normativi</a>
+        <a href="#download" onclick="showSection('download')">Download</a>
+    </div>
 
-    <div class="contenuto">
-        <div id="home" class="sezione-contenuto active">
-            <h2>Introduzione</h2>
-            <p>
-                Il sito è dedicato al calcolo del fattore di rischio per le aziende aeronautiche. Attraverso il menu laterale è possibile accedere alle varie aree tematiche, ciascuna dedicata a un aspetto specifico del processo: i riferimenti normativi di settore, la visualizzazione e interpretazione delle matrici di rischio, la simulazione dei calcoli secondo la regola generale, le Best Practice da adottare, la documentazione disponibile in formato PDF e la valutazione complessiva del servizio offerto.
-            </p>
-        </div>
+    <div class="contenuto">
+        
+        <div id="introduzione" class="sezione-contenuto active">
+            <h2>Introduzione al Risk Management</h2>
+            <p>Il processo di Risk Management è fondamentale per qualsiasi organizzazione, in quanto consente di identificare, valutare, trattare e monitorare i rischi che potrebbero influire sul raggiungimento degli obiettivi. Questo manuale fornisce una guida pratica e strutturata per l'implementazione di un efficace sistema di gestione del rischio, basato sulla metodologia della matrice di rischio.</p>
+        </div>
 
-        <div id="riferimenti" class="sezione-contenuto">
-            <h2>Riferimenti Normativi</h2>
-            <p>
-                Di seguito sono riportati i principali riferimenti normativi e standard che costituiscono la base per il calcolo del fattore di rischio e la gestione della sicurezza:
-            </p>
-            <ul>
-                <li><strong>Regolamento UE 2016/679 (GDPR)</strong>: obblighi per la protezione dei dati personali di dipendenti, clienti e fornitori;</li>
-                <li><strong>EASA Cybersecurity Framework</strong>: linee guida per la sicurezza informatica e protezione dei dati nel settore aeronautico;</li>
-                <li><strong>ISO/IEC 27035</strong>: linee guida per l’identificazione, l’analisi e la risposta agli incidenti informatici, con indicazioni sulle misure di prevenzione;</li>
-                <li><strong>LSMS & ISO/IEC 27001</strong>: standard interni e internazionali per la gestione della sicurezza delle informazioni;</li>
-                <li><strong>D.lgs. 81/2008</strong>: riferimento legislativo relativo alla sicurezza fisica e organizzativa dei lavoratori;</li>
-                <li><strong>Standard interni di sicurezza</strong> e politiche aziendali configurate seguendo le linee guida dell’Agenzia europea per la sicurezza aerea (EASA) e degli enti nazionali di certificazione.</li>
-            </ul>
-        </div>
+        <div id="matrice" class="sezione-contenuto matrice-style">
+            <h2>La Matrice di Rischio</h2>
+            <p>La matrice di rischio è uno strumento visivo che incrocia il livello di probabilità del verificarsi di un evento con il suo potenziale impatto. Permette di classificare i rischi in base alla loro gravità e di stabilire le priorità di intervento. La matrice qui presentata è un modello 5x5 che classifica i rischi in cinque categorie, da "molto basso" a "molto alto".</p>
+            <div class="table-container">
+                <table class="rischio-matrice">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Impatto</th>
+                            <th colspan="5" class="intestazione-matrice">Probabilità</th>
+                        </tr>
+                        <tr>
+                            <th class="raro">Raro</th>
+                            <th class="improbabile">Improbabile</th>
+                            <th class="probabile">Probabile</th>
+                            <th class="quasi-certo">Quasi Certo</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="impatto-basso">Basso</td>
+                            <td class="verde valore-1">1</td>
+                            <td class="verde valore-2">2</td>
+                            <td class="giallo valore-3">3</td>
+                            <td class="arancione valore-4">4</td>
+                            <td class="rosso valore-5">5</td>
+                        </tr>
+                        <tr>
+                            <td class="impatto-medio">Medio</td>
+                            <td class="verde valore-2">2</td>
+                            <td class="giallo valore-4">4</td>
+                            <td class="arancione valore-6">6</td>
+                            <td class="rosso valore-8">8</td>
+                            <td class="rosso-scuro valore-10">10</td>
+                        </tr>
+                        <tr>
+                            <td class="impatto-alto">Alto</td>
+                            <td class="giallo valore-3">3</td>
+                            <td class="arancione valore-6">6</td>
+                            <td class="rosso valore-9">9</td>
+                            <td class="rosso-scuro valore-12">12</td>
+                            <td class="rosso-scuro valore-15">15</td>
+                        </tr>
+                        <tr>
+                            <td class="impatto-critico">Critico</td>
+                            <td class="arancione valore-4">4</td>
+                            <td class="rosso valore-8">8</td>
+                            <td class="rosso-scuro valore-12">12</td>
+                            <td class="rosso-scuro valore-16">16</td>
+                            <td class="rosso-scuro valore-20">20</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-        <div id="matrice" class="sezione-contenuto matrice-style">
-            <h2>Tabelle di Impatto, Probabilità e Matrice del Rischio</h2>
-            <div class="sezioni-affiancate">
-                <div class="sezione">
-                    <p class="sottotitolo">Valutazione delle probabilità legata alla periodicità degli eventi (P)</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="intestazione-probabilita">Livello</th>
-                                <th class="intestazione-probabilita">Descrizione</th>
-                                <th class="intestazione-probabilita">Periodicità</th>
-                                <th class="intestazione-probabilita">Probabilità</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="raro">
-                                <td data-label="Livello">1</td>
-                                <td data-label="Descrizione">Raro</td>
-                                <td data-label="Periodicità">10 Anni</td>
-                                <td data-label="Probabilità">Bassa</td>
-                            </tr>
-                            <tr class="improbabile">
-                                <td data-label="Livello">2</td>
-                                <td data-label="Descrizione">Improbabile</td>
-                                <td data-label="Periodicità">5 Anni</td>
-                                <td data-label="Probabilità">Moderata</td>
-                            </tr>
-                            <tr class="probabile">
-                                <td data-label="Livello">3</td>
-                                <td data-label="Descrizione">Probabile</td>
-                                <td data-label="Periodicità">1 Mese</td>
-                                <td data-label="Probabilità">Alta</td>
-                            </tr>
-                            <tr class="quasi-certo">
-                                <td data-label="Livello">4</td>
-                                <td data-label="Descrizione">Quasi Certo</td>
-                                <td data-label="Periodicità">1 Settimana</td>
-                                <td data-label="Probabilità">Molto Alta</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+        <div id="probabilita" class="sezione-contenuto">
+            <h2>Livelli di Probabilità</h2>
+            <p>La probabilità è la possibilità che un evento di rischio si verifichi. Viene valutata su una scala qualitativa.</p>
+            <div class="table-container">
+                <table class="tabella-probabilita">
+                    <thead>
+                        <tr>
+                            <th class="intestazione-probabilita">Valore</th>
+                            <th class="intestazione-probabilita">Nome</th>
+                            <th class="intestazione-probabilita">Descrizione</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Valore">1</td>
+                            <td data-label="Nome" class="raro">Raro</td>
+                            <td data-label="Descrizione">Si verificherà solo in circostanze eccezionali.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Valore">2</td>
+                            <td data-label="Nome" class="improbabile">Improbabile</td>
+                            <td data-label="Descrizione">Potrebbe verificarsi in qualche momento.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Valore">3</td>
+                            <td data-label="Nome" class="probabile">Probabile</td>
+                            <td data-label="Descrizione">Si verificherà probabilmente in molte circostanze.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Valore">4</td>
+                            <td data-label="Nome" class="quasi-certo">Quasi Certo</td>
+                            <td data-label="Descrizione">Ci si attende che si verifichi nella maggior parte delle circostanze.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-                <div class="sezione">
-                    <p class="sottotitolo">Valutazione dell'impatto specifico (I)</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="intestazione-impatto">Indice</th>
-                                <th class="intestazione-impatto">Impatto</th>
-                                <th class="intestazione-impatto">Descrizione</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="impatto-basso">
-                                <td data-label="Indice">1</td>
-                                <td data-label="Impatto">Limitato</td>
-                                <td data-label="Descrizione">Dati non critici e danni limitati</td>
-                            </tr>
-                            <tr class="impatto-medio">
-                                <td data-label="Indice">2</td>
-                                <td data-label="Impatto">Medio</td>
-                                <td data-label="Descrizione">Dati tecnici parzialmente compromessi con leggeri ritardi operativi</td>
-                            </tr>
-                            <tr class="impatto-alto">
-                                <td data-label="Indice">3</td>
-                                <td data-label="Impatto">Medio-Alto</td>
-                                <td data-label="Descrizione">Dati essenziali alterati o distrutti con ritardi produttivi e sanzioni</td>
-                            </tr>
-                            <tr class="impatto-critico">
-                                <td data-label="Indice">4</td>
-                                <td data-label="Impatto">Alto</td>
-                                <td data-label="Descrizione">Perdita di dati sensibili con conseguenze legali e danni reputazionali</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+        <div id="impatto" class="sezione-contenuto">
+            <h2>Livelli di Impatto</h2>
+            <p>L'impatto rappresenta la conseguenza di un evento di rischio. Viene valutato su una scala qualitativa in base alla gravità dei suoi effetti.</p>
+            <div class="table-container">
+                <table class="tabella-impatto">
+                    <thead>
+                        <tr>
+                            <th class="intestazione-impatto">Valore</th>
+                            <th class="intestazione-impatto">Nome</th>
+                            <th class="intestazione-impatto">Descrizione</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Valore">1</td>
+                            <td data-label="Nome" class="impatto-basso">Basso</td>
+                            <td data-label="Descrizione">Conseguenza di entità minima.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Valore">2</td>
+                            <td data-label="Nome" class="impatto-medio">Medio</td>
+                            <td data-label="Descrizione">Conseguenza di entità moderata.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Valore">3</td>
+                            <td data-label="Nome" class="impatto-alto">Alto</td>
+                            <td data-label="Descrizione">Conseguenza di entità elevata.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Valore">4</td>
+                            <td data-label="Nome" class="impatto-critico">Critico</td>
+                            <td data-label="Descrizione">Conseguenza di entità molto elevata o catastrofica.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-            <div class="sezioni-affiancate">
-                <div class="sezione">
-                    <p class="sottotitolo">Matrice del calcolo del rischio</p>
-                    <table class="rischio-matrice">
-                        <thead>
-                            <tr>
-                                <th class="intestazione-matrice">Impatto \ Probabilità</th>
-                                <th class="intestazione-matrice">RARO (1)</th>
-                                <th class="intestazione-matrice">IMPROBABILE (2)</th>
-                                <th class="intestazione-matrice">PROBABILE (3)</th>
-                                <th class="intestazione-matrice">QUASI CERTO (4)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="Impatto \ Probabilità"><strong>ALTO (4)</strong></td>
-                                <td data-label="RARO (1)" class="valore-4">4</td>
-                                <td data-label="IMPROBABILE (2)" class="valore-8">8</td>
-                                <td data-label="PROBABILE (3)" class="valore-12">12</td>
-                                <td data-label="QUASI CERTO (4)" class="valore-16">16</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Impatto \ Probabilità"><strong>MEDIO-ALTO (3)</strong></td>
-                                <td data-label="RARO (1)" class="valore-3">3</td>
-                                <td data-label="IMPROBABILE (2)" class="valore-6">6</td>
-                                <td data-label="PROBABILE (3)" class="valore-9">9</td>
-                                <td data-label="QUASI CERTO (4)" class="valore-12">12</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Impatto \ Probabilità"><strong>MEDIO (2)</strong></td>
-                                <td data-label="RARO (1)" class="valore-2">2</td>
-                                <td data-label="IMPROBABILE (2)" class="valore-4">4</td>
-                                <td data-label="PROBABILE (3)" class="valore-6">6</td>
-                                <td data-label="QUASI CERTO (4)" class="valore-8">8</td>
-                            </tr>
-                            <tr>
-                                <td data-label="Impatto \ Probabilità"><strong>LIMITATO (1)</strong></td>
-                                <td data-label="RARO (1)" class="valore-1">1</td>
-                                <td data-label="IMPROBABILE (2)" class="valore-2">2</td>
-                                <td data-label="PROBABILE (3)" class="valore-3">3</td>
-                                <td data-label="QUASI CERTO (4)" class="valore-4">4</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+        <div id="denominazione" class="sezione-contenuto">
+            <h2>Denominazione del Rischio</h2>
+            <p>Ogni rischio, in base al valore calcolato, può essere classificato in una delle seguenti categorie:</p>
+            <div class="table-container">
+                <table class="tabella-denominazione">
+                    <thead>
+                        <tr>
+                            <th class="intestazione-denominazione">Valore</th>
+                            <th class="intestazione-denominazione">Denominazione</th>
+                            <th class="intestazione-denominazione">Descrizione</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Valore" class="verde">1 - 2</td>
+                            <td data-label="Denominazione" class="verde">Rischio Molto Basso</td>
+                            <td data-label="Descrizione">Rischio accettabile che richiede un monitoraggio di routine.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Valore" class="giallo">3 - 6</td>
+                            <td data-label="Denominazione" class="giallo">Rischio Basso</td>
+                            <td data-label="Descrizione">Rischio che richiede un monitoraggio più attento e l'adozione di misure preventive.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Valore" class="arancione">4 - 8</td>
+                            <td data-label="Denominazione" class="arancione">Rischio Medio</td>
+                            <td data-label="Descrizione">Rischio che richiede un'azione di mitigazione e una supervisione costante.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Valore" class="rosso">8 - 12</td>
+                            <td data-label="Denominazione" class="rosso">Rischio Alto</td>
+                            <td data-label="Descrizione">Rischio significativo che necessita di misure di contenimento immediate.</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Valore" class="rosso-scuro">12 - 20</td>
+                            <td data-label="Denominazione" class="rosso-scuro">Rischio Molto Alto</td>
+                            <td data-label="Descrizione">Rischio critico che richiede un piano di emergenza e un intervento urgente.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-                <div class="sezione">
-                    <p class="sottotitolo">Denominazione del rischio</p>
-                    <table class="tabella-denominazione">
-                        <thead>
-                            <tr>
-                                <th class="intestazione-denominazione">Denominazione</th>
-                                <th class="intestazione-denominazione">Range Numerico</th>
-                                <th class="intestazione-denominazione">Descrizione</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="verde">
-                                <td data-label="Denominazione">Rischio Basso</td>
-                                <td data-label="Range Numerico">1 ≤ R ≤ 2</td>
-                                <td data-label="Descrizione">Violazioni non critiche per integrità, riservatezza o disponibilità.</td>
-                            </tr>
-                            <tr class="giallo">
-                                <td data-label="Denominazione">Rischio Limitato</td>
-                                <td data-label="Range Numerico">3 ≤ R ≤ 4</td>
-                                <td data-label="Descrizione">Livello medio-basso. Richiede monitoraggio e azioni correttive programmate.</td>
-                            </tr>
-                            <tr class="arancione">
-                                <td data-label="Denominazione">Rischio Medio</td>
-                                <td data-label="Range Numerico">4 &lt; R ≤ 6</td>
-                                <td data-label="Descrizione">Conseguenze non trascurabili. Necessario ripristino della sicurezza.</td>
-                            </tr>
-                            <tr class="rosso">
-                                <td data-label="Denominazione">Rischio Medio-Alto</td>
-                                <td data-label="Range Numerico">6 &lt; R ≤ 8</td>
-                                <td data-label="Descrizione">Minacce significative. Intervento urgente richiesto.</td>
-                            </tr>
-                            <tr class="rosso-scuro">
-                                <td data-label="Denominazione">Rischio Alto</td>
-                                <td data-label="Range Numerico">8 &lt; R ≤ 10</td>
-                                <td data-label="Descrizione">Impatti gravi. Azioni correttive rigorose e immediate con notifica all’Autorità.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <div id="valutazione" class="sezione-contenuto valutazione-style">
+            <h2>Valutazione del Rischio</h2>
+            <p>Utilizza il seguente modulo per calcolare il valore del rischio. Inserisci la probabilità e l'impatto, e il sistema calcolerà il valore del rischio.</p>
+            <form id="calcolo-rischio">
+                <label for="probabilita-select">Seleziona il valore di Probabilità:</label>
+                <select id="probabilita-select" name="probabilita" required>
+                    <option value="" disabled selected>-- Seleziona --</option>
+                    <option value="1">1 - Raro</option>
+                    <option value="2">2 - Improbabile</option>
+                    <option value="3">3 - Probabile</option>
+                    <option value="4">4 - Quasi Certo</option>
+                </select>
 
-        <div id="regola" class="sezione-contenuto regola-style">
-            <h2>Regola Generale</h2>
-            <p>
-                La regola generale fornisce la base per il calcolo del fattore di rischio, combinando la probabilità di occorrenza di un evento 
-                con la gravità delle sue conseguenze.
-            </p>
-            <div class="formula">R = P × I</div>
-            <ul>
-                <li><strong>R</strong> = Fattore di Rischio</li>
-                <li><strong>P</strong> = Probabilità che si verifichi una violazione o un incidente di sicurezza/privacy</li>
-                <li><strong>I</strong> = Impatto o gravità con annesse conseguenze aziendali</li>
-            </ul>
-            <p>
-                Questa formula permette di tradurre in un valore numerico il livello di rischio, utile per definire priorità di intervento 
-                e misure di mitigazione.
-            </p>
-            <h2>Simulazione del calcolo del fattore di rischio</h2>
-            <p><em>Inserire gli indici inerenti all'impatto (I) e alla probabilità (P) (da 1 a 4).</em></p>
-            <p style="text-align:center; font-size:18px;">
-                <span style="font-weight:bold;">R = </span>
-                <input type="number" id="inputI" placeholder="I" min="1" max="4">
-                ×
-                <input type="number" id="inputP" placeholder="P" min="1" max="4">
-                <span>= <span id="valoreR">?</span></span>
-            </p>
-            <p style="text-align:center;">
-                <button id="calcola-btn">Calcola</button>
-            </p>
-            <div id="risultato-calcolo"></div>
-        </div>
+                <label for="impatto-select">Seleziona il valore di Impatto:</label>
+                <select id="impatto-select" name="impatto" required>
+                    <option value="" disabled selected>-- Seleziona --</option>
+                    <option value="1">1 - Basso</option>
+                    <option value="2">2 - Medio</option>
+                    <option value="3">3 - Alto</option>
+                    <option value="4">4 - Critico</option>
+                </select>
 
-        <div id="bestpractice" class="sezione-contenuto best-practice-style">
-            <h2>Best Practice</h2>
-            <p>In questa pagina sono riportati alcuni suggerimenti da adottare in un’azienda aeronautica per prevenire o ridurre i rischi legati alla sicurezza e alla privacy:</p>
-            <ul>
-                <li><strong>Miglioramento continuo del LSMS</strong> (Leonardo Security Management System) per garantire efficacia e conformità agli standard di sicurezza aeronautica, affrontare nuove minacce e vulnerabilità, e rispondere adeguatamente ai requisiti normativi e ai possibili attacchi di Cyber Security.</li>
-                <li><strong>Formazione continua e specializzata</strong>, con corsi incentrati sulle procedure e le politiche di LSMS, per offrire maggiore consapevolezza in ambito di sicurezza informatica e regolamentazione privacy nel settore aeronautico all’intera popolazione aziendale.</li>
-                <li><strong>Controllo rigoroso degli accessi fisici</strong> ai sistemi, con autenticazione biometrica e limitazione dei privilegi utente, ispezionato da un monitoraggio continuo e audit interni.</li>
-                <li><strong>Definizione di Recovery Plan e Incident Response</strong> da adottare nel settore aeronautico, aerospaziale e della difesa, per garantire continuità operativa e sicurezza dei dati trattati ed elaborati. Audit regolari e valutazioni di rischio aggiornate, in linea con i riferimenti normativi e tecnologici nel settore aeronautico.</li>
-                <li><strong>Collaborazione con enti regolatori e certificatori</strong> (EASA, ENAC, FAA) e partecipazione a incontri di settore per aggiornamenti costanti sulle minacce emergenti.</li>
-            </ul>
-        </div>
+                <button type="button" id="calcola-btn">Calcola Rischio</button>
+            </form>
+            <div id="risultato-calcolo" style="display: none;"></div>
+        </div>
 
-        <div id="download" class="sezione-contenuto download-style">
-            <h2>Scarica la Guida</h2>
-            <p>
-                È disponibile per il download il documento <strong>"Guida al calcolo del fattore di rischio"</strong>, che contiene tutte le informazioni necessarie per comprendere e applicare correttamente il metodo di valutazione.
-            </p>
-            <a class="download-btn" href="Guida al calcolo del fattore di rischio.pdf" download>
-                📥 Scarica la Guida
-            </a>
-        </div>
+        <div id="regola" class="sezione-contenuto">
+            <h2>La Regola del Rischio</h2>
+            <p>Il valore del rischio viene calcolato moltiplicando il valore della probabilità per il valore dell'impatto.</p>
+            <p class="formula">Rischio = Probabilità x Impatto</p>
+            <p>Questa formula, sebbene semplice, fornisce una base quantitativa per la classificazione e la gestione dei rischi, rendendo il processo più oggettivo e meno soggetto a interpretazioni soggettive.</p>
+        </div>
 
-        <div id="valutazione" class="sezione-contenuto valutazione-style">
-            <h2>Valutazione Finale</h2>
-            <p>
-                Ti chiediamo di valutare l'elaborato rispondendo alle seguenti domande. Il tuo feedback sarà inviato direttamente al nostro indirizzo email nel pieno rispetto della privacy.
-            </p>
-            <form action="mailto:hdjweb@gmail.com" method="post" enctype="text/plain">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="Nome" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="Email" required>
-                <label for="chiarezza">Quanto è chiaro l'elaborato?</label>
-                <select id="chiarezza" name="Chiarezza">
-                    <option value="Molto chiaro">Molto chiaro</option>
-                    <option value="Abbastanza chiaro">Abbastanza chiaro</option>
-                    <option value="Poco chiaro">Poco chiaro</option>
-                    <option value="Per niente chiaro">Per niente chiaro</option>
-                </select>
-                <label for="completezza">Quanto è completo il contenuto?</label>
-                <select id="completezza" name="Completezza">
-                    <option value="Molto completo">Molto completo</option>
-                    <option value="Abbastanza completo">Abbastanza completo</option>
-                    <option value="Poco completo">Poco completo</option>
-                    <option value="Incompleto">Incompleto</option>
-                </select>
-                <label for="utilità">Quanto è utile per te?</label>
-                <select id="utilità" name="Utilità">
-                    <option value="Molto utile">Molto utile</option>
-                    <option value="Abbastanza utile">Abbastanza utile</option>
-                    <option value="Poco utile">Poco utile</option>
-                    <option value="Inutile">Inutile</option>
-                </select>
-                <label for="feedback">Feedback aggiuntivo:</label>
-                <textarea id="feedback" name="Feedback"></textarea>
-                <button type="submit">Invia Valutazione</button>
-            </form>
-        </div>
-    </div>
+        <div id="bestpractice" class="sezione-contenuto">
+            <h2>Best Practice</h2>
+            <p>La gestione del rischio non è un evento singolo, ma un processo continuo. Ecco alcune best practice per un'efficace implementazione:</p>
+            <ul>
+                <li>**Coinvolgimento:** Includi tutte le parti interessate nel processo.</li>
+                <li>**Monitoraggio:** Monitora e revisiona regolarmente i rischi identificati.</li>
+                <li>**Documentazione:** Documenta in modo chiaro e conciso ogni fase del processo.</li>
+                <li>**Comunicazione:** Comunica i rischi a tutti i livelli dell'organizzazione.</li>
+                <li>**Cultura:** Promuovi una cultura di consapevolezza del rischio.</li>
+            </ul>
+        </div>
 
-    <script src="script.js"></script>
+        <div id="riferimenti" class="sezione-contenuto">
+            <h2>Riferimenti Normativi</h2>
+            <p>Il processo di Risk Management è regolamentato da diverse normative e standard internazionali, tra cui:</p>
+            <ul>
+                <li>**ISO 31000:** Standard internazionale per la gestione del rischio.</li>
+                <li>**COSO ERM:** Quadro di riferimento per la gestione del rischio d'impresa.</li>
+                <li>**Legge 231/2001 (Italia):** Responsabilità amministrativa degli enti per reati commessi nel loro interesse.</li>
+            </ul>
+        </div>
+
+        <div id="download" class="sezione-contenuto download-style">
+            <h2>Download</h2>
+            <p>Scarica una versione stampabile di questo manuale e gli strumenti utili per la gestione del rischio.</p>
+            <a href="manuale_risk_management.pdf" class="download-btn" download>Scarica il Manuale (PDF)</a>
+        </div>
+
+    </div>
+
+    <script>
+        // Funzione per mostrare la sezione corretta
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.sezione-contenuto');
+            sections.forEach(section => {
+                section.style.display = 'none';
+                section.classList.remove('active');
+            });
+
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.style.display = 'block';
+                activeSection.classList.add('active');
+            }
+
+            // Chiude la sidebar su schermi piccoli dopo aver selezionato una sezione
+            const sidebar = document.getElementById('sidebar');
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('active');
+            }
+        }
+
+        // Funzione per aprire/chiudere la sidebar
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        // Gestisce l'apertura automatica della sidebar su desktop
+        window.addEventListener('resize', () => {
+            const sidebar = document.getElementById('sidebar');
+            if (window.innerWidth > 768) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // Logica per il calcolo del rischio
+        document.getElementById('calcola-btn').addEventListener('click', function() {
+            const probabilita = document.getElementById('probabilita-select').value;
+            const impatto = document.getElementById('impatto-select').value;
+            const risultatoDiv = document.getElementById('risultato-calcolo');
+
+            if (!probabilita || !impatto) {
+                risultatoDiv.style.display = 'block';
+                risultatoDiv.innerHTML = 'Per favore, seleziona un valore sia per la Probabilità che per l\'Impatto.';
+                risultatoDiv.style.backgroundColor = 'red';
+                risultatoDiv.classList.add('visibile');
+                return;
+            }
+
+            const valoreR = parseInt(probabilita) * parseInt(impatto);
+
+            let denominazione;
+            let colore;
+
+            if (valoreR >= 1 && valoreR <= 2) {
+                denominazione = 'Rischio Molto Basso';
+                colore = '#00b050';
+            } else if (valoreR >= 3 && valoreR <= 6) {
+                denominazione = 'Rischio Basso';
+                colore = '#92d050';
+            } else if (valoreR >= 4 && valoreR <= 8) {
+                denominazione = 'Rischio Medio';
+                colore = '#ffff00';
+            } else if (valoreR >= 8 && valoreR <= 12) {
+                denominazione = 'Rischio Alto';
+                colore = '#ff9900';
+            } else if (valoreR >= 12 && valoreR <= 20) {
+                denominazione = 'Rischio Molto Alto';
+                colore = '#ff3300';
+            }
+
+            let coloreTesto;
+            if (colore === '#ffff00' || colore === '#92d050') {
+                coloreTesto = 'black';
+            } else {
+                coloreTesto = 'white';
+            }
+            
+            risultatoDiv.style.display = 'block';
+            risultatoDiv.innerHTML = `Valore del Rischio: <span id="valoreR" style="background-color: ${colore}; color: ${coloreTesto};">${valoreR}</span><br>Denominazione: ${denominazione}`;
+            risultatoDiv.style.backgroundColor = colore;
+            risultatoDiv.style.color = coloreTesto;
+            risultatoDiv.classList.add('visibile');
+        });
+
+        // Mostra la sezione "Introduzione" all'avvio
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('introduzione');
+        });
+    </script>
+
 </body>
 </html>
 
