@@ -8,13 +8,9 @@ html, body {
   background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9)), url('filigrana.png') center/contain no-repeat;
   background-blend-mode: lighten;
   line-height: 1.6;
-  box-sizing: border-box;
-}
-*, *::before, *::after {
-  box-sizing: inherit;
 }
 
-/* Stili per la barra superiore e il menu */
+/* Barra superiore */
 .top-bar {
   position: fixed;
   top: 0;
@@ -34,6 +30,8 @@ html, body {
   font-weight: 700;
   letter-spacing: 0.5px;
 }
+
+/* Toggle button */
 .toggle-btn {
   position: fixed;
   top: 15px;
@@ -44,36 +42,36 @@ html, body {
   padding: 8px 12px;
   border: none;
   cursor: pointer;
-  z-index: 1100;
+  z-index: 1200;
   border-radius: 5px;
 }
 .toggle-btn:hover {
   background-color: rgba(0, 128, 128, 0.1);
 }
 
-/* Stili per la sidebar */
+/* Sidebar */
 .sidebar {
   height: 100%;
   width: 250px;
   position: fixed;
   top: 0;
   left: -250px;
-  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  z-index: 900;
+  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.95), rgba(214, 245, 242, 0.95));
+  overflow-y: auto;
+  z-index: 1100;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 80px;
   padding-left: 20px;
+  transition: transform 0.3s ease;
 }
 .sidebar.active {
   transform: translateX(250px);
 }
 .sidebar a {
   margin-top: 10px;
-  padding: 12px 0;
+  padding: 12px 10px;
   text-decoration: none;
   font-size: 18px;
   color: #003333;
@@ -82,31 +80,33 @@ html, body {
   transition: background-color 0.3s ease, padding-left 0.3s ease;
 }
 .sidebar a:hover {
-  background-color: rgba(0, 128, 128, 0.05);
-  padding-left: 10px;
+  background-color: rgba(0, 128, 128, 0.1);
+  padding-left: 15px;
 }
 
-/* Stili per il contenuto principale */
+/* Contenuto principale */
 .contenuto {
   position: absolute;
   top: 60px;
-  left: 250px;
+  left: 0;
   right: 0;
   bottom: 0;
-  padding: 0 20px;
-  z-index: 1;
+  padding: 20px;
   overflow-y: auto;
+  transition: margin-left 0.3s ease;
+}
+.contenuto.sidebar-open {
+  margin-left: 250px;
 }
 
+/* Sezioni contenuto */
 .sezione-contenuto {
   display: none;
   position: relative;
-  max-width: 1200px;
-  width: 100%;
+  max-width: 800px;
   z-index: 1;
   text-align: justify;
   margin: auto;
-  box-sizing: border-box;
 }
 .sezione-contenuto.active {
   display: block;
@@ -124,7 +124,7 @@ html, body {
   text-align: center;
 }
 
-/* Stili per gli h2 e altri elementi di testo */
+/* Titoli e testi */
 h2 {
   font-size: 28px;
   color: #006633;
@@ -152,6 +152,8 @@ ul {
   text-align: center;
   margin: 20px 0;
 }
+
+/* Pulsanti download */
 .download-btn {
   display: inline-block;
   background-color: #006633;
@@ -166,7 +168,7 @@ ul {
   background-color: #004d26;
 }
 
-/* Stili per form e input */
+/* Form e input */
 .valutazione-style form {
   display: flex;
   flex-direction: column;
@@ -239,7 +241,7 @@ ul {
   display: inline-block;
 }
 
-/* Stili per le tabelle */
+/* Tabelle */
 .sezioni-affiancate {
   display: flex;
   gap: 40px;
@@ -249,16 +251,15 @@ ul {
 .sezione {
   flex: 1 1 450px;
   min-width: 300px;
-  box-sizing: border-box;
 }
 table {
   width: 100%;
-  max-width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
   margin-bottom: 30px;
-  table-layout: fixed;
-  word-wrap: break-word;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 th, td {
   border: 1px solid #333;
@@ -294,103 +295,34 @@ th, td {
 .rosso { background-color: #ff9900; color: white; }
 .rosso-scuro { background-color: #ff3300; color: white; }
 .rischio-matrice td.valore-1,
-.rischio-matrice td.valore-2 {
-  background-color: #00b050;
-}
-.rischio-matrice td.valore-3 {
-  background-color: #92d050;
-}
+.rischio-matrice td.valore-2 { background-color: #00b050; }
+.rischio-matrice td.valore-3 { background-color: #92d050; }
 .rischio-matrice td.valore-4,
-.rischio-matrice td.valore-6 {
-  background-color: #ffff00;
-  color: black;
-}
+.rischio-matrice td.valore-6 { background-color: #ffff00; color: black; }
 .rischio-matrice td.valore-8,
-.rischio-matrice td.valore-9 {
-  background-color: #ff9900;
-  color: white;
-}
+.rischio-matrice td.valore-9 { background-color: #ff9900; color: white; }
 .rischio-matrice td.valore-12,
-.rischio-matrice td.valore-16 {
-  background-color: #ff3300;
-  color: white;
-}
-.rischio-matrice tr:nth-child(3) td:nth-child(3) {
-  background-color: #92d050 !important;
-  color: initial !important;
-}
-.tabella-denominazione td {
-  font-size: 14px;
-  line-height: 1.4;
-  max-height: 120px;
-  overflow-y: auto;
-  vertical-align: top;
+.rischio-matrice td.valore-16 { background-color: #ff3300; color: white; }
+.rischio-matrice tr:nth-child(3) td:nth-child(3) { background-color: #92d050 !important; color: initial !important; }
+.tabella-denominazione td { font-size: 14px; line-height: 1.4; max-height: 120px; overflow-y: auto; vertical-align: top; }
+
+/* Media query per dispositivi max-width 768px */
+@media screen and (max-width: 768px) {
+  .top-bar { justify-content: center; }
+  .top-bar h1 { font-size: 16px; margin: 0; }
+  .toggle-btn { top: 10px; left: 10px; font-size: 20px; padding: 6px 10px; }
+  .sidebar { width: 100%; transform: translateX(-100%); padding-top: 60px; padding-left: 0; }
+  .sidebar.active { transform: translateX(0); }
+  .contenuto { left: 0; top: 60px; padding: 20px; }
+  .sezione-contenuto { padding: 20px 10px; }
+  #riferimenti, #regola, #bestpractice, #valutazione { padding-top: 0px; }
+  .sezioni-affiancate { flex-direction: column; gap: 20px; }
+  table { display: block; overflow-x: auto; white-space: nowrap; }
+  h2 { font-size: 24px; }
+  p, ul, li { font-size: 16px; }
+  .formula { font-size: 18px; }
+  .download-btn, #calcola-btn { font-size: 16px; padding: 10px 20px; }
+  .valutazione-style select, .valutazione-style textarea, .valutazione-style input { font-size: 14px; }
 }
 
-/* Media Query per dispositivi con larghezza massima di 768px */
-@media screen and (max-width: 768px) {
-  .top-bar {
-    justify-content: center;
-  }
-  .top-bar h1 {
-    font-size: 16px;
-  }
-  .toggle-btn {
-    top: 10px;
-    left: 10px;
-    font-size: 20px;
-    padding: 6px 10px;
-  }
-  .sidebar {
-    width: 100%;
-    transform: translateX(-100%);
-    padding-top: 60px;
-    padding-left: 0;
-  }
-  .sidebar.active {
-    transform: translateX(0);
-  }
-  .contenuto {
-    left: 0;
-    top: 60px;
-    padding: 20px;
-  }
-  .sezione-contenuto {
-    padding: 20px 10px;
-  }
-  #riferimenti,
-  #regola,
-  #bestpractice,
-  #valutazione {
-    padding-top: 0px;
-  }
-  .sezioni-affiancate {
-    flex-direction: column;
-    gap: 20px;
-  }
-  table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  h2 {
-    font-size: 24px;
-  }
-  p, ul, li {
-    font-size: 16px;
-  }
-  .formula {
-    font-size: 18px;
-  }
-  .download-btn,
-  #calcola-btn {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
-  .valutazione-style select,
-  .valutazione-style textarea,
-  .valutazione-style input {
-    font-size: 14px;
-  }
-}
 
