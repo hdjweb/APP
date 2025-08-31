@@ -21,7 +21,7 @@ html, body {
   background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
   display: flex; /* Utilizza flexbox */
   align-items: center; /* Centra verticalmente gli elementi */
-  justify-content: flex-start; /* Allinea gli elementi a sinistra */
+  justify-content: center; /* Allinea gli elementi al centro */
   padding: 0 20px; /* Aggiungi un padding laterale per lo spazio */
   z-index: 1000;
 }
