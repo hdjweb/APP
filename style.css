@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 /* Stili di base */
 html, body {
     margin: 0;
@@ -327,14 +328,10 @@ th, td {
     }
 }
 
-/* Media Query per dispositivi con larghezza massima di 768px (tablet e smartphone) */
+/* Media Query per dispositivi mobili */
 @media screen and (max-width: 768px) {
-    .top-bar {
-        justify-content: center;
-    }
     .top-bar h1 {
         font-size: 16px;
-        margin: 0;
     }
     .toggle-btn {
         top: 10px;
@@ -344,91 +341,70 @@ th, td {
     }
     .sidebar {
         width: 100%;
-        transform: translateX(-100%);
-    }
-    .sidebar.active {
-        transform: translateX(0);
+        padding-left: 10px;
     }
     .contenuto {
         left: 0;
         top: 60px;
-        padding-top: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 10px;
     }
     .sezione-contenuto {
-        padding: 20px 10px;
+        padding: 10px 0;
+        margin: 0;
+        box-sizing: border-box;
     }
-    #riferimenti,
-    #regola,
-    #bestpractice,
-    #valutazione {
-        padding-top: 0px;
+    .sezione-contenuto.matrice-style {
+        max-width: 100%;
     }
     .sezioni-affiancate {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
     }
-
-    /* Ristrutturazione delle tabelle per smartphone */
+    .sezione {
+        min-width: 100%;
+        margin: 0;
+    }
+    
+    /* Ristrutturazione delle tabelle */
     table {
-        border: 0;
+        border: 1px solid #ccc;
         margin-bottom: 20px;
     }
-    table thead {
-        display: none; /* Nasconde l'intestazione */
-    }
-    table, tbody, tr, td {
-        display: block; /* Trasforma le celle in blocchi */
-        width: 100%;
+    thead {
+        display: none;
     }
     tr {
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+        display: block;
+    }
+    tr:last-child {
+        border-bottom: none;
     }
     td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        border: none;
+        border-bottom: 1px solid #eee;
     }
     td:before {
         content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 50%;
-        padding-left: 10px;
         font-weight: bold;
         text-align: left;
+        color: #555;
+        flex-basis: 50%;
     }
     
-    .tabella-denominazione td {
-        font-size: 14px;
-        line-height: 1.4;
-        max-height: initial;
-        overflow-y: initial;
-        vertical-align: top;
-        text-align: right;
-    }
-    
-    /* Riduzione della dimensione dei font per maggiore leggibilità */
+    /* Regolazione font e elementi di form */
     h2 {
         font-size: 24px;
     }
-    p, ul, li {
+    p, ul, li, .valutazione-style label {
         font-size: 16px;
     }
-    .formula {
-        font-size: 18px;
-    }
-    /* Regola la visualizzazione di pulsanti e form */
-    .download-btn,
-    #calcola-btn {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-    .valutazione-style select,
-    .valutazione-style textarea,
-    .valutazione-style input {
+    .valutazione-style input, .valutazione-style select, .valutazione-style textarea {
         font-size: 14px;
     }
 }
