@@ -80,6 +80,5 @@ function calcolaR() {
 
 // Gestione del caricamento iniziale della pagina
 window.onload = function() {
-    // La riga `carica('home');` è stata rimossa per evitare che il menu si apra automaticamente.
-    // L'impostazione della sezione "home" come attiva è già gestita dal tuo HTML.
+    carica('home');
 };
