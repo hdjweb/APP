@@ -17,7 +17,7 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100px;
+  height: 60px;
   background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
   display: flex;
   align-items: center;
@@ -26,10 +26,11 @@ html, body {
 }
 .top-bar h1 {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   color: #003333;
   font-weight: 700;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 .toggle-btn {
   font-size: 24px;
@@ -40,10 +41,9 @@ html, body {
   cursor: pointer;
   z-index: 1100;
   border-radius: 5px;
-  /* Posizionamento fisso per desktop */
-  position: fixed;
-  top: 15px;
-  left: 20px;
+  /* Posizionamento assoluto all'interno del contenitore flessibile */
+  position: absolute; 
+  left: 20px; 
 }
 .toggle-btn:hover {
   background-color: rgba(0, 128, 128, 0.1);
@@ -294,77 +294,62 @@ th, td {
   vertical-align: top;
 }
 
-/* Media query dispositivi piccoli */
+/* Media query dispositivi piccoli (mobile) */
 @media screen and (max-width: 768px) {
-  /* Modifiche per il layout della top-bar per evitare sovrapposizioni */
   .top-bar {
-    justify-content: flex-start; /* Allinea gli elementi a sinistra */
-    padding: 0 10px; /* Aggiungi un po' di spazio dal bordo */
+    height: 100px; /* Aumenta l'altezza su mobile per far stare il titolo */
   }
-
   .top-bar h1 {
-    font-size: 18px; /* Aumentato leggermente */
-    text-align: left;
-    margin-left: 50px; /* Sposta il titolo a destra per fare spazio al pulsante */
+    font-size: 18px; /* Riduci la dimensione del carattere per adattarlo */
+    line-height: 1.2;
+    margin-left: 60px; /* Aggiungi spazio per il pulsante */
     margin-right: 10px;
   }
-  
-  .toggle-btn { 
-    font-size: 20px; 
-    padding: 6px 10px; 
-    top: 10px; 
-    left: 10px; 
+  .toggle-btn {
+    font-size: 20px;
+    padding: 6px 10px;
+    top: 15px; /* Sposta il pulsante più in basso */
+    left: 10px;
   }
-  
   .sidebar { 
     width: 100%; 
     transform: translateX(-100%); 
     padding-top: 60px; 
     padding-left: 0; 
   }
-  
   .sidebar.active { 
     transform: translateX(0); 
   }
-  
   .contenuto { 
     left: 0; 
     top: 60px; 
     padding: 20px; 
   }
-  
   .sezione-contenuto { 
     padding: 20px 10px; 
   }
-  
   .sezioni-affiancate { 
     flex-direction: column; 
     gap: 20px; 
   }
-  
   table { 
     display: block; 
     overflow-x: auto; 
     white-space: nowrap; 
   }
-  
   h2 { 
     font-size: 24px; 
   }
-  
   p, ul, li { 
     font-size: 16px; 
   }
-  
   .formula { 
     font-size: 18px; 
   }
-  
   .download-btn, #calcola-btn { 
     font-size: 16px; 
     padding: 10px 20px; 
   }
-  
   .valutazione-style select, .valutazione-style textarea, .valutazione-style input { 
     font-size: 14px; 
   }
