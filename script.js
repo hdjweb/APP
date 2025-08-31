@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Nasconde la sidebar sui dispositivi mobili dopo la selezione
         if (window.innerWidth <= 768) {
             sidebar.classList.remove('active');
+            document.body.classList.remove('no-scroll');
         }
     }
 
@@ -23,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (toggleBtn) {
         toggleBtn.addEventListener('click', function() {
             sidebar.classList.toggle('active');
+            if (window.innerWidth <= 768) {
+                document.body.classList.toggle('no-scroll');
+            }
         });
     }
 
