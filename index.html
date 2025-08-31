@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<head>
     <meta charset="UTF-8">
     <title>Guida al rischio aeronautico</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,16 +12,16 @@
         <h1>Guida al calcolo della gestione del rischio nel settore aeronautico</h1>
     </div>
 
-    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <button class="toggle-btn">☰</button>
 
     <div id="sidebar" class="sidebar">
-        <a href="#" onclick="carica('home')">Home</a>
-        <a href="#" onclick="carica('riferimenti')">Riferimenti Normativi</a>
-        <a href="#" onclick="carica('matrice')">Matrice del Rischio</a>
-        <a href="#" onclick="carica('regola')">Regola Generale</a>
-        <a href="#" onclick="carica('bestpractice')">Best Practice Aereonautiche</a>
-        <a href="#" onclick="carica('download')">Download</a>
-        <a href="#" onclick="carica('valutazione')">Valutazione Finale</a>
+        <a href="#home">Home</a>
+        <a href="#riferimenti">Riferimenti Normativi</a>
+        <a href="#matrice">Matrice del Rischio</a>
+        <a href="#regola">Regola Generale</a>
+        <a href="#bestpractice">Best Practice Aereonautiche</a>
+        <a href="#download">Download</a>
+        <a href="#valutazione">Valutazione Finale</a>
     </div>
 
     <div class="contenuto">
@@ -205,7 +204,7 @@
                 <span>= <span id="valoreR">?</span></span>
             </p>
             <p style="text-align:center;">
-                <button id="calcola-btn" onclick="calcolaR()">Calcola</button>
+                <button id="calcola-btn">Calcola</button>
             </p>
             <div id="risultato-calcolo"></div>
         </div>
