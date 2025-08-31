@@ -43,27 +43,32 @@ html, body {
   border-radius: 5px;
   position: absolute; 
   left: 20px; 
+  display: none; /* Nascosto di default su desktop */
 }
 .toggle-btn:hover {
   background-color: rgba(0, 128, 128, 0.1);
 }
 
-/* Sidebar: regole di base valide per tutti gli schermi, poi modificate dalle media query */
+/* Sidebar: regole per desktop */
 .sidebar {
   height: 100%;
   width: 250px;
   position: fixed;
-  top: 60px; /* Sotto la barra superiore del desktop */
+  top: 0;
   left: 0;
   background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.95), rgba(214, 245, 242, 0.95));
   overflow-y: auto;
+  transition: transform 0.3s ease;
   z-index: 900;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: 20px;
+  padding-top: 80px;
   padding-left: 20px;
-  transition: transform 0.3s ease;
+  transform: translateX(0); /* Visibile di default */
+}
+.sidebar.active {
+    transform: translateX(0);
 }
 .sidebar a {
   margin-top: 10px;
@@ -79,12 +84,8 @@ html, body {
   background-color: rgba(0, 128, 128, 0.05);
   padding-left: 15px;
 }
-.sidebar.active {
-    transform: translateX(0);
-}
 
-
-/* Contenuto principale: regole di base valide per tutti gli schermi, poi modificate dalle media query */
+/* Contenuto principale: regole per desktop */
 .contenuto {
   position: absolute;
   top: 60px;
@@ -295,68 +296,61 @@ th, td {
 
 /* Media query per dispositivi mobili (larghezze <= 768px) */
 @media screen and (max-width: 768px) {
+  /* Regole per la barra superiore e il pulsante */
   .top-bar {
-    height: 100px;
+    height: 100px; /* Aumenta l'altezza per il titolo */
   }
   .top-bar h1 {
-    font-size: 18px; 
-    line-height: 1.2;
+    font-size: 18px;
     margin-left: 60px;
     margin-right: 10px;
   }
   .toggle-btn {
-    display: block;
-    position: absolute;
-    top: 15px; 
+    display: block; /* Rendi visibile il pulsante su mobile */
+    top: 15px;
     left: 10px;
   }
-  .sidebar { 
-    width: 0; 
-    transform: translateX(-100%); 
+
+  /* Regole per la sidebar a comparsa */
+  .sidebar {
+    width: 0;
+    transform: translateX(-100%);
     padding-top: 120px;
-    padding-left: 0; 
-    box-shadow: none;
   }
-  .sidebar.active { 
+  .sidebar.active {
     width: 250px;
-    transform: translateX(0); 
+    transform: translateX(0);
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
   }
-  .contenuto { 
-    left: 0; 
-    top: 80px; 
-    padding: 20px; 
+  .sidebar a {
+    width: auto;
   }
-  .sezione-contenuto { 
-    padding: 20px 10px; 
+
+  /* Regole per il contenuto principale */
+  .contenuto {
+    left: 0;
+    top: 80px;
+    padding: 20px 10px;
   }
-  .sezioni-affiancate { 
-    flex-direction: column; 
-    gap: 20px; 
+  
+  /* Adattamento tabelle e layout */
+  .sezioni-affiancate {
+    flex-direction: column;
+    gap: 20px;
   }
-  .sezione { 
-    flex: 1 1 auto; 
-    min-width: unset; 
+  .sezione {
+    flex: 1 1 auto;
+    min-width: unset;
   }
-  table { 
-    display: block; 
-    overflow-x: auto; 
-    white-space: nowrap; 
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
-  h2 { 
-    font-size: 24px; 
+  h2 {
+    font-size: 24px;
   }
-  p, ul, li { 
-    font-size: 16px; 
-  }
-  .formula { 
-    font-size: 18px; 
-  }
-  .download-btn, #calcola-btn { 
-    font-size: 16px; 
-    padding: 10px 20px; 
-  }
-  .valutazione-style select, .valutazione-style textarea, .valutazione-style input { 
-    font-size: 14px; 
+  p, ul, li {
+    font-size: 16px;
   }
 }
