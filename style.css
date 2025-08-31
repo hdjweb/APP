@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-/* Stili di base */
+/* Stili di base del documento */
 html, body {
   margin: 0;
   height: 100%;
@@ -41,7 +41,6 @@ html, body {
   cursor: pointer;
   z-index: 1100;
   border-radius: 5px;
-  /* Posizionamento assoluto all'interno del contenitore flessibile */
   position: absolute; 
   left: 20px; 
 }
@@ -49,7 +48,43 @@ html, body {
   background-color: rgba(0, 128, 128, 0.1);
 }
 
-/* Contenuto principale */
+/* Sidebar: regole di base valide per tutti gli schermi, poi modificate dalle media query */
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 60px; /* Sotto la barra superiore del desktop */
+  left: 0;
+  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.95), rgba(214, 245, 242, 0.95));
+  overflow-y: auto;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 20px;
+  padding-left: 20px;
+  transition: transform 0.3s ease;
+}
+.sidebar a {
+  margin-top: 10px;
+  padding: 12px 10px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #003333;
+  text-align: left;
+  width: 100%;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+.sidebar a:hover {
+  background-color: rgba(0, 128, 128, 0.05);
+  padding-left: 15px;
+}
+.sidebar.active {
+    transform: translateX(0);
+}
+
+
+/* Contenuto principale: regole di base valide per tutti gli schermi, poi modificate dalle media query */
 .contenuto {
   position: absolute;
   top: 60px;
@@ -258,36 +293,6 @@ th, td {
   vertical-align: top;
 }
 
-/* Media query per dispositivi desktop (larghezze > 768px) */
-@media screen and (min-width: 769px) {
-    .sidebar {
-        width: 250px;
-        position: fixed;
-        top: 60px; /* Sotto la barra superiore */
-        left: 0;
-        height: calc(100% - 60px);
-        background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.95), rgba(214, 245, 242, 0.95));
-        overflow-y: auto;
-        z-index: 900;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-top: 20px;
-        padding-left: 20px;
-        transform: translateX(0); /* Rendi la barra visibile */
-    }
-
-    .contenuto {
-        margin-left: 250px; /* Sposta il contenuto per far spazio alla barra */
-        top: 60px;
-        padding-top: 20px;
-    }
-    
-    .toggle-btn {
-        display: none; /* Nascondi il pulsante del menu */
-    }
-}
-
 /* Media query per dispositivi mobili (larghezze <= 768px) */
 @media screen and (max-width: 768px) {
   .top-bar {
@@ -300,8 +305,8 @@ th, td {
     margin-right: 10px;
   }
   .toggle-btn {
-    font-size: 20px;
-    padding: 6px 10px;
+    display: block;
+    position: absolute;
     top: 15px; 
     left: 10px;
   }
@@ -310,11 +315,7 @@ th, td {
     transform: translateX(-100%); 
     padding-top: 120px;
     padding-left: 0; 
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    z-index: 1000;
+    box-shadow: none;
   }
   .sidebar.active { 
     width: 250px;
