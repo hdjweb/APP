@@ -372,7 +372,10 @@ th, td {
     table {
         display: block;
         overflow-x: auto;
-        white-space: nowrap;
+    }
+    th, td {
+        white-space: normal;
+        padding: 8px; /* Aggiunto un padding più piccolo per adattarsi meglio */
     }
     h2 {
         font-size: 24px;
