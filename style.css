@@ -303,7 +303,7 @@ th, td {
         left: 0;
         top: 0;
         z-index: 1001; /* Sopra la sidebar */
-        height: 80px; /* Aumenta l'altezza per il titolo */
+        height: 70px; /* Aumenta l'altezza per il titolo */
         align-items: flex-start;
         padding-top: 10px;
         padding-left: 60px;
@@ -326,7 +326,7 @@ th, td {
         box-shadow: none;
         transition: transform 0.3s ease-in-out;
         z-index: 1000;
-        padding-top: 100px;
+        padding-top: 120px;
         position: fixed;
         left: 0;
     }
