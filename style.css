@@ -8,9 +8,10 @@ html, body {
   background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9)), url('filigrana.png') center/contain no-repeat;
   background-blend-mode: lighten;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Barra superiore */
+/* Barra superiore e pulsante menu */
 .top-bar {
   position: fixed;
   top: 0;
@@ -30,8 +31,6 @@ html, body {
   font-weight: 700;
   letter-spacing: 0.5px;
 }
-
-/* Toggle button */
 .toggle-btn {
   position: fixed;
   top: 15px;
@@ -42,7 +41,7 @@ html, body {
   padding: 8px 12px;
   border: none;
   cursor: pointer;
-  z-index: 1200;
+  z-index: 1100;
   border-radius: 5px;
 }
 .toggle-btn:hover {
@@ -55,19 +54,20 @@ html, body {
   width: 250px;
   position: fixed;
   top: 0;
-  left: -250px;
+  left: 0;
   background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.95), rgba(214, 245, 242, 0.95));
   overflow-y: auto;
-  z-index: 1100;
+  transition: transform 0.3s ease;
+  z-index: 900;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 80px;
   padding-left: 20px;
-  transition: transform 0.3s ease;
+  transform: translateX(-250px);
 }
 .sidebar.active {
-  transform: translateX(250px);
+  transform: translateX(0);
 }
 .sidebar a {
   margin-top: 10px;
@@ -80,7 +80,7 @@ html, body {
   transition: background-color 0.3s ease, padding-left 0.3s ease;
 }
 .sidebar a:hover {
-  background-color: rgba(0, 128, 128, 0.1);
+  background-color: rgba(0, 128, 128, 0.05);
   padding-left: 15px;
 }
 
@@ -88,31 +88,26 @@ html, body {
 .contenuto {
   position: absolute;
   top: 60px;
-  left: 0;
+  left: 250px;
   right: 0;
   bottom: 0;
   padding: 20px;
+  z-index: 1;
   overflow-y: auto;
-  transition: margin-left 0.3s ease;
 }
-.contenuto.sidebar-open {
-  margin-left: 250px;
-}
-
-/* Sezioni contenuto */
 .sezione-contenuto {
   display: none;
   position: relative;
   max-width: 800px;
-  z-index: 1;
-  text-align: justify;
   margin: auto;
+  text-align: justify;
 }
 .sezione-contenuto.active {
   display: block;
 }
 .sezione-contenuto.matrice-style {
   max-width: 1200px;
+  overflow-x: auto;
 }
 .sezione-contenuto.download-style {
   text-align: center;
@@ -124,7 +119,7 @@ html, body {
   text-align: center;
 }
 
-/* Titoli e testi */
+/* Testi e titoli */
 h2 {
   font-size: 28px;
   color: #006633;
@@ -153,8 +148,8 @@ ul {
   margin: 20px 0;
 }
 
-/* Pulsanti download */
-.download-btn {
+/* Pulsanti download e calcolo */
+.download-btn, #calcola-btn {
   display: inline-block;
   background-color: #006633;
   color: white;
@@ -163,12 +158,14 @@ ul {
   text-decoration: none;
   border-radius: 6px;
   transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
-.download-btn:hover {
+.download-btn:hover, #calcola-btn:hover {
   background-color: #004d26;
 }
 
-/* Form e input */
+/* Form valutazione */
 .valutazione-style form {
   display: flex;
   flex-direction: column;
@@ -209,22 +206,12 @@ ul {
 .valutazione-style button:hover {
   background-color: #004d26;
 }
-#calcola-btn {
-  background-color: #006633;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 5px 14px;
-}
-#calcola-btn:hover {
-  background-color: #004d26;
-}
+
+/* Risultato calcolo */
 #risultato-calcolo {
   opacity: 0;
   font-size: 20px;
   font-weight: bold;
-  color: white;
   padding: 20px;
   margin-top: 30px;
   border-radius: 8px;
@@ -257,9 +244,7 @@ table {
   border-collapse: collapse;
   margin-top: 10px;
   margin-bottom: 30px;
-  display: block;
   overflow-x: auto;
-  white-space: nowrap;
 }
 th, td {
   border: 1px solid #333;
@@ -294,28 +279,28 @@ th, td {
 .arancione { background-color: #ffff00; color: black; }
 .rosso { background-color: #ff9900; color: white; }
 .rosso-scuro { background-color: #ff3300; color: white; }
-.rischio-matrice td.valore-1,
-.rischio-matrice td.valore-2 { background-color: #00b050; }
+.rischio-matrice td.valore-1, .rischio-matrice td.valore-2 { background-color: #00b050; }
 .rischio-matrice td.valore-3 { background-color: #92d050; }
-.rischio-matrice td.valore-4,
-.rischio-matrice td.valore-6 { background-color: #ffff00; color: black; }
-.rischio-matrice td.valore-8,
-.rischio-matrice td.valore-9 { background-color: #ff9900; color: white; }
-.rischio-matrice td.valore-12,
-.rischio-matrice td.valore-16 { background-color: #ff3300; color: white; }
+.rischio-matrice td.valore-4, .rischio-matrice td.valore-6 { background-color: #ffff00; color: black; }
+.rischio-matrice td.valore-8, .rischio-matrice td.valore-9 { background-color: #ff9900; color: white; }
+.rischio-matrice td.valore-12, .rischio-matrice td.valore-16 { background-color: #ff3300; color: white; }
 .rischio-matrice tr:nth-child(3) td:nth-child(3) { background-color: #92d050 !important; color: initial !important; }
-.tabella-denominazione td { font-size: 14px; line-height: 1.4; max-height: 120px; overflow-y: auto; vertical-align: top; }
+.tabella-denominazione td {
+  font-size: 14px;
+  line-height: 1.4;
+  max-height: 120px;
+  overflow-y: auto;
+  vertical-align: top;
+}
 
-/* Media query per dispositivi max-width 768px */
+/* Media query dispositivi piccoli */
 @media screen and (max-width: 768px) {
-  .top-bar { justify-content: center; }
-  .top-bar h1 { font-size: 16px; margin: 0; }
-  .toggle-btn { top: 10px; left: 10px; font-size: 20px; padding: 6px 10px; }
+  .top-bar h1 { font-size: 16px; }
+  .toggle-btn { font-size: 20px; top: 10px; left: 10px; padding: 6px 10px; }
   .sidebar { width: 100%; transform: translateX(-100%); padding-top: 60px; padding-left: 0; }
   .sidebar.active { transform: translateX(0); }
   .contenuto { left: 0; top: 60px; padding: 20px; }
   .sezione-contenuto { padding: 20px 10px; }
-  #riferimenti, #regola, #bestpractice, #valutazione { padding-top: 0px; }
   .sezioni-affiancate { flex-direction: column; gap: 20px; }
   table { display: block; overflow-x: auto; white-space: nowrap; }
   h2 { font-size: 24px; }
@@ -324,5 +309,6 @@ th, td {
   .download-btn, #calcola-btn { font-size: 16px; padding: 10px 20px; }
   .valutazione-style select, .valutazione-style textarea, .valutazione-style input { font-size: 14px; }
 }
+
 
 
