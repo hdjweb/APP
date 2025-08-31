@@ -295,23 +295,24 @@ th, td {
 
 /* Media query dispositivi piccoli */
 @media screen and (max-width: 768px) {
+  /* Modifiche per il layout della top-bar per evitare sovrapposizioni */
   .top-bar {
-    justify-content: flex-start;
-    padding: 0 10px; /* Riduci il padding generale */
+    justify-content: flex-start; /* Allinea gli elementi a sinistra */
+    padding-left: 10px; /* Aggiungi un po' di spazio dal bordo */
   }
-  
+
   .top-bar h1 {
     font-size: 18px; /* Aumentato leggermente */
     text-align: left;
-    margin: 0 0 0 50px; /* Sposta il titolo a destra per fare spazio al pulsante */
+    margin-left: 50px; /* Sposta il titolo a destra per fare spazio al pulsante */
+    margin-right: 10px;
   }
   
   .toggle-btn { 
-    position: static; /* Rimuovi il posizionamento fisso */
     font-size: 20px; 
     padding: 6px 10px; 
-    top: auto;
-    left: auto;
+    top: 10px; 
+    left: 10px; 
   }
   
   .sidebar { 
