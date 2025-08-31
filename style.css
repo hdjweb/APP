@@ -100,7 +100,7 @@ html, body {
     z-index: 1;
     text-align: justify;
     margin: auto;
-    padding: 20px; /* Aggiunto padding di default per coerenza */
+    padding: 20px;
 }
 .sezione-contenuto.active {
     display: block;
@@ -342,7 +342,6 @@ th, td {
         font-size: 20px;
         padding: 6px 10px;
     }
-
     .sidebar {
         width: 100%;
         transform: translateX(-100%);
@@ -350,7 +349,6 @@ th, td {
     .sidebar.active {
         transform: translateX(0);
     }
-
     .contenuto {
         left: 0;
         top: 60px;
@@ -361,14 +359,12 @@ th, td {
     .sezione-contenuto {
         padding: 20px 10px;
     }
-
     #riferimenti,
     #regola,
     #bestpractice,
     #valutazione {
         padding-top: 0px;
     }
-
     .sezioni-affiancate {
         flex-direction: column;
         gap: 20px;
@@ -378,7 +374,6 @@ th, td {
         overflow-x: auto;
         white-space: nowrap;
     }
-
     h2 {
         font-size: 24px;
     }
@@ -388,7 +383,6 @@ th, td {
     .formula {
         font-size: 18px;
     }
-
     .download-btn,
     #calcola-btn {
         font-size: 16px;
