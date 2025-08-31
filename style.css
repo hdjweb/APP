@@ -1,129 +1,400 @@
-/* === Stili generali per dispositivi mobili === */
-@media (max-width: 768px) {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* Stili di base */
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9)), url('filigrana.png') center/contain no-repeat;
+  background-blend-mode: lighten;
+  line-height: 1.6;
+}
 
-  /* Barra superiore */
+/* Stili per la barra superiore e il menu */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.top-bar h1 {
+  margin: 0;
+  font-size: 20px;
+  color: #003333;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.toggle-btn {
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  font-size: 24px;
+  background-color: transparent;
+  color: #003333;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+  border-radius: 5px;
+}
+.toggle-btn:hover {
+  background-color: rgba(0, 128, 128, 0.1);
+}
+
+/* Stili per la sidebar */
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
+  overflow: hidden;
+  transition: transform 0.3s ease; /* Usiamo transform per animazioni più fluide */
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 80px;
+  padding-left: 20px;
+}
+.sidebar.active {
+    transform: translateX(250px);
+}
+.sidebar a {
+  margin-top: 10px;
+  padding: 12px 0;
+  text-decoration: none;
+  font-size: 18px;
+  color: #003333;
+  text-align: left;
+  width: 100%;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+.sidebar a:hover {
+  background-color: rgba(0, 128, 128, 0.05);
+  padding-left: 10px;
+}
+
+/* Stili per il contenuto principale */
+.contenuto {
+  position: absolute;
+  top: 60px;
+  left: 250px;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  z-index: 1;
+  overflow-y: auto;
+}
+.sezione-contenuto {
+  display: none;
+  position: relative;
+  max-width: 800px;
+  z-index: 1;
+  text-align: justify;
+  margin: auto;
+}
+.sezione-contenuto.active {
+  display: block;
+}
+.sezione-contenuto.matrice-style {
+  max-width: 1200px;
+}
+.sezione-contenuto.download-style {
+  text-align: center;
+}
+.sezione-contenuto.download-style p {
+  margin-bottom: 30px;
+}
+.sezione-contenuto.valutazione-style p {
+  text-align: center;
+}
+
+/* Stili per gli h2 e altri elementi di testo */
+h2 {
+  font-size: 28px;
+  color: #006633;
+  margin-bottom: 20px;
+  text-align: center;
+}
+p, ul, li {
+  font-size: 20px;
+  color: #333;
+}
+ul {
+  padding-left: 20px;
+}
+.sottotitolo {
+  font-size: 18px;
+  color: #004d33;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.formula {
+  font-size: 22px;
+  font-weight: bold;
+  color: #004d33;
+  text-align: center;
+  margin: 20px 0;
+}
+.download-btn {
+  display: inline-block;
+  background-color: #006633;
+  color: white;
+  font-size: 18px;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+.download-btn:hover {
+  background-color: #004d26;
+}
+
+/* Stili per form e input */
+.valutazione-style form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.valutazione-style label {
+  font-size: 18px;
+  color: #006633;
+  font-weight: bold;
+  margin-top: 10px;
+}
+.valutazione-style select,
+.valutazione-style textarea,
+.valutazione-style input {
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: 'Roboto', sans-serif;
+}
+.valutazione-style textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+.valutazione-style button {
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #006633;
+  color: white;
+  align-self: center;
+  margin-top: 20px;
+}
+.valutazione-style button:hover {
+  background-color: #004d26;
+}
+#calcola-btn {
+  background-color: #006633;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px 14px;
+}
+#calcola-btn:hover {
+  background-color: #004d26;
+}
+#risultato-calcolo {
+  opacity: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 8px;
+  white-space: pre-line;
+  transition: opacity 0.6s ease-in-out;
+}
+#risultato-calcolo.visibile {
+  opacity: 1;
+}
+#valoreR {
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Stili per le tabelle */
+.sezioni-affiancate {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.sezione {
+  flex: 1 1 450px;
+  min-width: 300px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+th, td {
+  border: 1px solid #333;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+}
+.intestazione-probabilita,
+.intestazione-matrice {
+  background-color: #006633;
+  color: white;
+}
+.intestazione-impatto {
+  background-color: #003366;
+  color: white;
+}
+.intestazione-denominazione,
+.tabella-denominazione th {
+  background-color: #444444;
+  color: white;
+}
+.raro { background-color: #b6e3b6; }
+.improbabile { background-color: #d9f2d9; }
+.probabile { background-color: #fff6b0; }
+.quasi-certo { background-color: #f5b5b5; }
+.impatto-basso { background-color: #cce5ff; }
+.impatto-medio { background-color: #b3d1ff; }
+.impatto-alto { background-color: #99bbff; }
+.impatto-critico { background-color: #809fff; }
+.verde { background-color: #00b050; color: white; }
+.giallo { background-color: #92d050; color: black; }
+.arancione { background-color: #ffff00; color: black; }
+.rosso { background-color: #ff9900; color: white; }
+.rosso-scuro { background-color: #ff3300; color: white; }
+.rischio-matrice td.valore-1,
+.rischio-matrice td.valore-2 {
+  background-color: #00b050;
+}
+.rischio-matrice td.valore-3 {
+  background-color: #92d050;
+}
+.rischio-matrice td.valore-4,
+.rischio-matrice td.valore-6 {
+  background-color: #ffff00;
+  color: black;
+}
+.rischio-matrice td.valore-8,
+.rischio-matrice td.valore-9 {
+  background-color: #ff9900;
+  color: white;
+}
+.rischio-matrice td.valore-12,
+.rischio-matrice td.valore-16 {
+  background-color: #ff3300;
+  color: white;
+}
+.rischio-matrice tr:nth-child(3) td:nth-child(3) {
+  background-color: #92d050 !important;
+  color: initial !important;
+}
+.tabella-denominazione td {
+  font-size: 14px;
+  line-height: 1.4;
+  max-height: 120px;
+  overflow-y: auto;
+  vertical-align: top;
+}
+
+/* Media Query per dispositivi con larghezza massima di 768px (tablet e smartphone) */
+@media screen and (max-width: 768px) {
+  /* Adatta la barra superiore */
   .top-bar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 60px;
-    background-color: #f5f5f5;
-    padding: 0 10px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    justify-content: center;
   }
-
   .top-bar h1 {
     font-size: 16px;
-    margin-right: 20px;
-    white-space: nowrap;
+    margin: 0;
   }
-
-  /* Pulsante toggle menu */
   .toggle-btn {
-    position: absolute;
     top: 10px;
     left: 10px;
     font-size: 20px;
     padding: 6px 10px;
-    z-index: 1001;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
   }
-
-  /* Sidebar */
+  
+  /* Nascondi la sidebar e posizionala sopra il contenuto */
   .sidebar {
-    position: fixed;
-    top: 0;
-    left: -100%;
     width: 100%;
-    height: 100%;
-    background-color: #ffffff;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
     padding-top: 60px;
     padding-left: 0;
-    transition: left 0.3s ease-in-out;
-    z-index: 999;
-    overflow-y: auto;
   }
-
   .sidebar.active {
-    left: 0;
+    transform: translateX(0);
   }
-
-  /* Contenuto principale */
+  
+  /* Adatta il contenuto alla larghezza dello schermo */
   .contenuto {
-    position: relative;
-    top: 60px;
     left: 0;
-    padding: 20px;
-    box-sizing: border-box;
+    top: 60px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-
   .sezione-contenuto {
-    padding: 0;
+    padding: 20px 10px;
   }
-
-  /* Sezioni specifiche */
+  
+  /* Riduci il padding delle sezioni specifiche */
   #riferimenti,
   #regola,
   #bestpractice,
   #valutazione {
-    padding-top: 0;
+    padding-top: 0px;
   }
-
-  /* Tabelle affiancate */
+  
+  /* Ottimizza le tabelle per schermi piccoli */
   .sezioni-affiancate {
-    display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 100%;
-    box-sizing: border-box;
   }
-
-  /* Tipografia */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  /* Riduci la dimensione dei font per maggiore leggibilità */
   h2 {
     font-size: 24px;
-    margin-bottom: 10px;
   }
-
   p, ul, li {
     font-size: 16px;
-    line-height: 1.6;
-    word-break: break-word;
   }
-
   .formula {
     font-size: 18px;
   }
-
-  /* Pulsanti e form */
+  
+  /* Regola la visualizzazione di pulsanti e form */
   .download-btn,
   #calcola-btn {
     font-size: 16px;
     padding: 10px 20px;
-    cursor: pointer;
-    border: none;
-    background-color: #007BFF;
-    color: white;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
   }
-
-  .download-btn:hover,
-  #calcola-btn:hover {
-    background-color: #0056b3;
-  }
-
   .valutazione-style select,
   .valutazione-style textarea,
   .valutazione-style input {
     font-size: 14px;
-    width: 100%;
-    box-sizing: border-box;
   }
 }
