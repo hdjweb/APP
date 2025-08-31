@@ -10,6 +10,9 @@ html, body {
   line-height: 1.6;
   box-sizing: border-box;
 }
+*, *::before, *::after {
+  box-sizing: inherit;
+}
 
 /* Stili per la barra superiore e il menu */
 .top-bar {
@@ -93,16 +96,16 @@ html, body {
   padding: 0 20px;
   z-index: 1;
   overflow-y: auto;
-  box-sizing: border-box;
 }
+
 .sezione-contenuto {
   display: none;
   position: relative;
-  max-width: 800px;
+  max-width: 1200px;
+  width: 100%;
   z-index: 1;
   text-align: justify;
   margin: auto;
-  padding: 0 20px;
   box-sizing: border-box;
 }
 .sezione-contenuto.active {
@@ -121,7 +124,7 @@ html, body {
   text-align: center;
 }
 
-/* Stili per h2 e altri elementi di testo */
+/* Stili per gli h2 e altri elementi di testo */
 h2 {
   font-size: 28px;
   color: #006633;
@@ -246,6 +249,7 @@ ul {
 .sezione {
   flex: 1 1 450px;
   min-width: 300px;
+  box-sizing: border-box;
 }
 table {
   width: 100%;
@@ -253,10 +257,8 @@ table {
   border-collapse: collapse;
   margin-top: 10px;
   margin-bottom: 30px;
-  table-layout: auto;
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
+  table-layout: fixed;
+  word-wrap: break-word;
 }
 th, td {
   border: 1px solid #333;
@@ -306,106 +308,89 @@ th, td {
 .rischio-matrice td.valore-8,
 .rischio-matrice td.valore-9 {
   background-color: #ff9900;
-color: white;
+  color: white;
 }
 .rischio-matrice td.valore-12,
 .rischio-matrice td.valore-16 {
-background-color: #ff3300;
-color: white;
+  background-color: #ff3300;
+  color: white;
 }
 .rischio-matrice tr:nth-child(3) td:nth-child(3) {
-background-color: #92d050 !important;
-color: initial !important;
+  background-color: #92d050 !important;
+  color: initial !important;
 }
 .tabella-denominazione td {
-font-size: 14px;
-line-height: 1.4;
-max-height: 120px;
-overflow-y: auto;
-vertical-align: top;
+  font-size: 14px;
+  line-height: 1.4;
+  max-height: 120px;
+  overflow-y: auto;
+  vertical-align: top;
 }
 
-/* Media Query per dispositivi con larghezza massima di 768px (tablet e smartphone) /
+/* Media Query per dispositivi con larghezza massima di 768px */
 @media screen and (max-width: 768px) {
-/ Adatta la barra superiore */
-.top-bar {
-justify-content: center;
-}
-.top-bar h1 {
-font-size: 16px;
-margin: 0;
-}
-.toggle-btn {
-top: 10px;
-left: 10px;
-font-size: 20px;
-padding: 6px 10px;
-}
-
-/* Nascondi la sidebar e posizionala sopra il contenuto */
-.sidebar {
-width: 100%;
-transform: translateX(-100%);
-transition: transform 0.3s ease;
-padding-top: 60px;
-padding-left: 0;
-}
-.sidebar.active {
-transform: translateX(0);
-}
-
-/* Adatta il contenuto alla larghezza dello schermo */
-.contenuto {
-left: 0;
-top: 60px;
-padding-top: 20px;
-padding-left: 20px;
-padding-right: 20px;
-}
-.sezione-contenuto {
-padding: 20px 10px;
-}
-
-/* Riduci il padding delle sezioni specifiche */
-#riferimenti,
-#regola,
-#bestpractice,
-#valutazione {
-padding-top: 0px;
-}
-
-/* Ottimizza le tabelle per schermi piccoli */
-.sezioni-affiancate {
-flex-direction: column;
-gap: 20px;
-}
-table {
-width: 100%;
-display: block;
-overflow-x: auto;
-white-space: nowrap;
-}
-
-/* Riduci la dimensione dei font per maggiore leggibilità */
-h2 {
-font-size: 24px;
-}
-p, ul, li {
-font-size: 16px;
-}
-.formula {
-font-size: 18px;
+  .top-bar {
+    justify-content: center;
+  }
+  .top-bar h1 {
+    font-size: 16px;
+  }
+  .toggle-btn {
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    padding: 6px 10px;
+  }
+  .sidebar {
+    width: 100%;
+    transform: translateX(-100%);
+    padding-top: 60px;
+    padding-left: 0;
+  }
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  .contenuto {
+    left: 0;
+    top: 60px;
+    padding: 20px;
+  }
+  .sezione-contenuto {
+    padding: 20px 10px;
+  }
+  #riferimenti,
+  #regola,
+  #bestpractice,
+  #valutazione {
+    padding-top: 0px;
+  }
+  .sezioni-affiancate {
+    flex-direction: column;
+    gap: 20px;
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  p, ul, li {
+    font-size: 16px;
+  }
+  .formula {
+    font-size: 18px;
+  }
+  .download-btn,
+  #calcola-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  .valutazione-style select,
+  .valutazione-style textarea,
+  .valutazione-style input {
+    font-size: 14px;
+  }
 }
 
-/* Regola la visualizzazione di pulsanti e form */
-.download-btn,
-#calcola-btn {
-font-size: 16px;
-padding: 10px 20px;
-}
-.valutazione-style select,
-.valutazione-style textarea,
-.valutazione-style input {
-font-size: 14px;
-}
-}
