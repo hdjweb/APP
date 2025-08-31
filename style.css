@@ -49,41 +49,6 @@ html, body {
   background-color: rgba(0, 128, 128, 0.1);
 }
 
-/* Sidebar */
-.sidebar {
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.95), rgba(214, 245, 242, 0.95));
-  overflow-y: auto;
-  transition: transform 0.3s ease;
-  z-index: 900;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 80px;
-  padding-left: 20px;
-}
-.sidebar.active {
-  transform: translateX(0);
-}
-.sidebar a {
-  margin-top: 10px;
-  padding: 12px 10px;
-  text-decoration: none;
-  font-size: 18px;
-  color: #003333;
-  text-align: left;
-  width: 100%;
-  transition: background-color 0.3s ease, padding-left 0.3s ease;
-}
-.sidebar a:hover {
-  background-color: rgba(0, 128, 128, 0.05);
-  padding-left: 15px;
-}
-
 /* Contenuto principale */
 .contenuto {
   position: absolute;
@@ -293,80 +258,104 @@ th, td {
   vertical-align: top;
 }
 
-/* Media query dispositivi piccoli (mobile) */
-@media screen and (max-width: 768px) {
-    /* Impostazioni per la barra superiore e il pulsante */
-    .top-bar {
-        position: fixed;
-        width: 100%;
-        left: 0;
-        top: 0;
-        z-index: 1001; /* Sopra la sidebar */
-        height: 100px; /* Aumenta l'altezza per il titolo */
-        align-items: flex-start;
-        padding-top: 10px;
-        padding-left: 60px;
-    }
-    .top-bar h1 {
-        font-size: 16px;
-        line-height: 1.2;
-    }
-    .toggle-btn {
-        display: block; /* Rendi il pulsante visibile */
-        position: absolute;
-        left: 10px;
-        top: 10px;
-    }
-
-    /* Regole per la sidebar a scomparsa */
+/* Media query per dispositivi desktop (larghezze > 768px) */
+@media screen and (min-width: 769px) {
     .sidebar {
-        width: 0;
-        transform: translateX(-100%);
-        box-shadow: none;
-        transition: transform 0.3s ease-in-out;
-        z-index: 1000;
-        padding-top: 120px;
-        position: fixed;
-        left: 0;
-    }
-    .sidebar.active {
         width: 250px;
-        transform: translateX(0);
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    }
-    .sidebar a {
-        width: auto;
-    }
-
-    /* Regola per il contenuto */
-    .contenuto {
+        position: fixed;
+        top: 60px; /* Sotto la barra superiore */
         left: 0;
-        top: 80px;
-    }
-
-    /* Regole generali per le sezioni */
-    .sezione-contenuto {
-        padding: 0 10px;
-    }
-
-    /* Tabelle e layout affiancati */
-    .sezioni-affiancate {
+        height: calc(100% - 60px);
+        background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.95), rgba(214, 245, 242, 0.95));
+        overflow-y: auto;
+        z-index: 900;
+        display: flex;
         flex-direction: column;
-        gap: 20px;
-    }
-    
-    .sezione {
-        flex: 1 1 auto;
-        min-width: unset;
-    }
-    
-    .sezione table {
-        width: 100%;
-        display: block;
-        overflow-x: auto;
+        align-items: flex-start;
+        padding-top: 20px;
+        padding-left: 20px;
+        transform: translateX(0); /* Rendi la barra visibile */
     }
 
-    .sezione table th, .sezione table td {
-        white-space: nowrap;
+    .contenuto {
+        margin-left: 250px; /* Sposta il contenuto per far spazio alla barra */
+        top: 60px;
+        padding-top: 20px;
     }
+    
+    .toggle-btn {
+        display: none; /* Nascondi il pulsante del menu */
+    }
+}
+
+/* Media query per dispositivi mobili (larghezze <= 768px) */
+@media screen and (max-width: 768px) {
+  .top-bar {
+    height: 100px;
+  }
+  .top-bar h1 {
+    font-size: 18px; 
+    line-height: 1.2;
+    margin-left: 60px;
+    margin-right: 10px;
+  }
+  .toggle-btn {
+    font-size: 20px;
+    padding: 6px 10px;
+    top: 15px; 
+    left: 10px;
+  }
+  .sidebar { 
+    width: 0; 
+    transform: translateX(-100%); 
+    padding-top: 120px;
+    padding-left: 0; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1000;
+  }
+  .sidebar.active { 
+    width: 250px;
+    transform: translateX(0); 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  }
+  .contenuto { 
+    left: 0; 
+    top: 80px; 
+    padding: 20px; 
+  }
+  .sezione-contenuto { 
+    padding: 20px 10px; 
+  }
+  .sezioni-affiancate { 
+    flex-direction: column; 
+    gap: 20px; 
+  }
+  .sezione { 
+    flex: 1 1 auto; 
+    min-width: unset; 
+  }
+  table { 
+    display: block; 
+    overflow-x: auto; 
+    white-space: nowrap; 
+  }
+  h2 { 
+    font-size: 24px; 
+  }
+  p, ul, li { 
+    font-size: 16px; 
+  }
+  .formula { 
+    font-size: 18px; 
+  }
+  .download-btn, #calcola-btn { 
+    font-size: 16px; 
+    padding: 10px 20px; 
+  }
+  .valutazione-style select, .valutazione-style textarea, .valutazione-style input { 
+    font-size: 14px; 
+  }
 }
