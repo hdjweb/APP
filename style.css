@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 /* Stili di base */
 html, body {
     margin: 0;
@@ -355,51 +354,53 @@ th, td {
     }
     .sezione-contenuto.matrice-style {
         max-width: 100%;
+        padding: 10px;
     }
     .sezioni-affiancate {
         flex-direction: column;
         gap: 15px;
+        width: 100%;
     }
     .sezione {
         min-width: 100%;
         margin: 0;
     }
     
-    /* Ristrutturazione delle tabelle */
-    table {
-        border: 1px solid #ccc;
-        margin-bottom: 20px;
-    }
-    thead {
-        display: none;
-    }
-    tr {
-        margin-bottom: 10px;
-        border-bottom: 1px solid #ccc;
+    /* Ristrutturazione delle tabelle per scorrimento orizzontale */
+    .sezione table {
         display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-collapse: separate;
+        border-spacing: 0;
     }
-    tr:last-child {
-        border-bottom: none;
+    .sezione table thead {
+        white-space: nowrap;
     }
-    td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 12px;
-        border: none;
-        border-bottom: 1px solid #eee;
+    .sezione table tbody {
+        white-space: nowrap;
     }
-    td:before {
-        content: attr(data-label);
-        font-weight: bold;
-        text-align: left;
-        color: #555;
-        flex-basis: 50%;
+    .sezione table th, .sezione table td {
+        white-space: normal;
+    }
+    .sezione table tr {
+        display: table-row;
+    }
+    .sezione table th, .sezione table td {
+        padding: 8px;
+        border: 1px solid #333;
+        font-size: 14px;
     }
     
+    .tabella-denominazione td {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
     /* Regolazione font e elementi di form */
     h2 {
-        font-size: 24px;
+        font-size: 22px;
     }
     p, ul, li, .valutazione-style label {
         font-size: 16px;
