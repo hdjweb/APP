@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-/* Stili di base */
+
+/* ===== Stili di base ===== */
 html, body {
   margin: 0;
   height: 100%;
@@ -9,7 +10,7 @@ html, body {
   line-height: 1.6;
 }
 
-/* Stili per la barra superiore e il menu */
+/* ===== Barra superiore e menu ===== */
 .top-bar {
   position: fixed;
   top: 0;
@@ -46,17 +47,17 @@ html, body {
   background-color: rgba(0, 128, 128, 0.1);
 }
 
-/* Stili per la sidebar */
+/* ===== Sidebar ===== */
 .sidebar {
   height: 100%;
   width: 250px;
   position: fixed;
   top: 0;
   left: -250px;
-  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.95), rgba(214, 245, 242, 0.95));
-  overflow-y: auto; /* scroll se troppi link */
+  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
+  overflow: hidden;
   transition: transform 0.3s ease;
-  z-index: 999;
+  z-index: 900;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -81,16 +82,15 @@ html, body {
   padding-left: 10px;
 }
 
-/* Stili per il contenuto principale */
+/* ===== Contenuto principale ===== */
 .contenuto {
-  position: relative;
+  position: absolute;
   top: 60px;
-  left: 0;       /* ✅ niente offset fisso */
+  left: 250px;
   right: 0;
   bottom: 0;
-  padding: 20px;
+  padding: 0;
   z-index: 1;
-  overflow-x: hidden;
   overflow-y: auto;
 }
 .sezione-contenuto {
@@ -117,7 +117,7 @@ html, body {
   text-align: center;
 }
 
-/* Stili per gli h2 e altri elementi di testo */
+/* ===== Testi ===== */
 h2 {
   font-size: 28px;
   color: #006633;
@@ -159,7 +159,7 @@ ul {
   background-color: #004d26;
 }
 
-/* Stili per form e input */
+/* ===== Form e input ===== */
 .valutazione-style form {
   display: flex;
   flex-direction: column;
@@ -232,7 +232,7 @@ ul {
   display: inline-block;
 }
 
-/* Stili per le tabelle */
+/* ===== Tabelle ===== */
 .sezioni-affiancate {
   display: flex;
   gap: 40px;
@@ -283,112 +283,34 @@ th, td {
 .rosso { background-color: #ff9900; color: white; }
 .rosso-scuro { background-color: #ff3300; color: white; }
 .rischio-matrice td.valore-1,
-.rischio-matrice td.valore-2 {
-  background-color: #00b050;
-}
-.rischio-matrice td.valore-3 {
-  background-color: #92d050;
-}
+.rischio-matrice td.valore-2 { background-color: #00b050; }
+.rischio-matrice td.valore-3 { background-color: #92d050; }
 .rischio-matrice td.valore-4,
-.rischio-matrice td.valore-6 {
-  background-color: #ffff00;
-  color: black;
-}
+.rischio-matrice td.valore-6 { background-color: #ffff00; color: black; }
 .rischio-matrice td.valore-8,
-.rischio-matrice td.valore-9 {
-  background-color: #ff9900;
-  color: white;
-}
+.rischio-matrice td.valore-9 { background-color: #ff9900; color: white; }
 .rischio-matrice td.valore-12,
-.rischio-matrice td.valore-16 {
-  background-color: #ff3300;
-  color: white;
-}
-.rischio-matrice tr:nth-child(3) td:nth-child(3) {
-  background-color: #92d050 !important;
-  color: initial !important;
-}
-.tabella-denominazione td {
-  font-size: 14px;
-  line-height: 1.4;
-  max-height: 120px;
-  overflow-y: auto;
-  vertical-align: top;
-}
+.rischio-matrice td.valore-16 { background-color: #ff3300; color: white; }
+.rischio-matrice tr:nth-child(3) td:nth-child(3) { background-color: #92d050 !important; color: initial !important; }
+.tabella-denominazione td { font-size: 14px; line-height: 1.4; max-height: 120px; overflow-y: auto; vertical-align: top; }
 
-/* Media Query per dispositivi con larghezza massima di 768px (tablet e smartphone) */
+/* ===== Media Queries ===== */
 @media screen and (max-width: 768px) {
-  /* Adatta la barra superiore */
-  .top-bar {
-    justify-content: center;
-  }
-  .top-bar h1 {
-    font-size: 16px;
-    margin: 0;
-  }
-  .toggle-btn {
-    top: 10px;
-    left: 10px;
-    font-size: 20px;
-    padding: 6px 10px;
-  }
-  
-  /* Nascondi la sidebar e posizionala sopra il contenuto */
-  .sidebar {
-    width: 100%;          /* copre tutto */
-    left: 0;
-    transform: translateX(-100%);
-    padding-left: 0;
-  }
-  .sidebar.active {
-    transform: translateX(0); /* entra da sinistra */
-  }
-  
-  /* Adatta il contenuto alla larghezza dello schermo */
-  .contenuto {
-    padding: 15px;
-  }
-  .sezione-contenuto {
-    padding: 20px 10px;
-  }
-  
-  /* Riduci il padding delle sezioni specifiche */
-  #riferimenti,
-  #regola,
-  #bestpractice,
-  #valutazione {
-    padding-top: 0px;
-  }
-  
-  /* Ottimizza le tabelle per schermi piccoli */
-  .sezioni-affiancate {
-    flex-direction: column;
-    gap: 20px;
-  }
-  table {
-    font-size: 14px;
-  }
-  
-  /* Riduci la dimensione dei font per maggiore leggibilità */
-h2 {
-    font-size: 22px;
-}
-  p, ul, li {
-    font-size: 15px;
-  }
-  .formula {
-    font-size: 18px;
-  }
-  
-  /* Regola la visualizzazione di pulsanti e form */
-  .download-btn,
-  #calcola-btn {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
+  .top-bar { justify-content: center; }
+  .top-bar h1 { font-size: 16px; margin: 0; }
+  .toggle-btn { top: 10px; left: 10px; font-size: 20px; padding: 6px 10px; }
+  .sidebar { width: 100%; transform: translateX(-100%); transition: transform 0.3s ease; padding-top: 60px; padding-left: 0; }
+  .sidebar.active { transform: translateX(0); }
+  .contenuto { left: 0; top: 60px; padding-top: 20px; padding-left: 20px; padding-right: 20px; }
+  .sezione-contenuto { padding: 20px 10px; }
+  #riferimenti, #regola, #bestpractice, #valutazione { padding-top: 0px; }
+  .sezioni-affiancate { flex-direction: column; gap: 20px; }
+  table { display: block; overflow-x: auto; white-space: nowrap; }
+  h2 { font-size: 24px; }
+  p, ul, li { font-size: 16px; }
+  .formula { font-size: 18px; }
+  .download-btn, #calcola-btn { font-size: 16px; padding: 10px 20px; }
   .valutazione-style select,
   .valutazione-style textarea,
-  .valutazione-style input {
-    font-size: 14px;
-  }
+  .valutazione-style input { font-size: 14px; }
 }
