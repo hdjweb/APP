@@ -326,7 +326,7 @@ th, td {
         box-shadow: none;
         transition: transform 0.3s ease-in-out;
         z-index: 1000;
-        padding-top: 60px;
+        padding-top: 100px;
         position: fixed;
         left: 0;
     }
