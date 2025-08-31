@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 /* Stili di base */
 html, body {
     margin: 0;
@@ -366,23 +365,54 @@ th, td {
         min-width: 100%;
         margin: 0;
     }
-
-    /* Contenitore per lo scorrimento orizzontale delle tabelle */
-    .table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+    
+    /* Ristrutturazione delle tabelle */
+    table:not(.rischio-matrice) {
+        border: 0;
         margin-bottom: 20px;
     }
-    
-    /* Stili generali per le tabelle all'interno del contenitore mobile */
-    .table-container table {
-        width: 600px; /* Larghezza fissa per forzare lo scorrimento */
-        max-width: none;
+    table:not(.rischio-matrice) thead {
+        display: none;
     }
-    .table-container th, .table-container td {
-        padding: 8px;
-        font-size: 14px;
-        min-width: 80px; /* Larghezza minima per le celle */
+    table:not(.rischio-matrice) tr {
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        display: block;
+    }
+    table:not(.rischio-matrice) td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        border: none;
+        border-bottom: 1px solid #eee;
+    }
+    table:not(.rischio-matrice) td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-align: left;
+        color: #555;
+        flex-basis: 50%;
+    }
+
+    /* Stili specifici per la matrice di rischio */
+    .rischio-matrice {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+    }
+    .rischio-matrice tr {
+        display: inline-block;
+        white-space: normal;
+        margin: 0;
+        border: none;
+    }
+    .rischio-matrice th, .rischio-matrice td {
+        white-space: nowrap;
+    }
+    .rischio-matrice th {
+        vertical-align: bottom;
     }
 
     /* Regolazione font e elementi di form */
