@@ -295,61 +295,74 @@ th, td {
 
 /* Media query dispositivi piccoli */
 @media screen and (max-width: 768px) {
-  /* Modifiche per il titolo e il top-bar */
   .top-bar {
     justify-content: flex-start;
-    padding-left: 60px;
+    padding: 0 10px; /* Riduci il padding generale */
   }
+  
   .top-bar h1 {
     font-size: 18px; /* Aumentato leggermente */
     text-align: left;
+    margin: 0 0 0 50px; /* Sposta il titolo a destra per fare spazio al pulsante */
   }
   
   .toggle-btn { 
+    position: static; /* Rimuovi il posizionamento fisso */
     font-size: 20px; 
-    top: 10px; 
-    left: 10px; 
     padding: 6px 10px; 
+    top: auto;
+    left: auto;
   }
+  
   .sidebar { 
     width: 100%; 
     transform: translateX(-100%); 
     padding-top: 60px; 
     padding-left: 0; 
   }
+  
   .sidebar.active { 
     transform: translateX(0); 
   }
+  
   .contenuto { 
     left: 0; 
     top: 60px; 
     padding: 20px; 
   }
+  
   .sezione-contenuto { 
     padding: 20px 10px; 
   }
+  
   .sezioni-affiancate { 
     flex-direction: column; 
     gap: 20px; 
   }
+  
   table { 
     display: block; 
     overflow-x: auto; 
     white-space: nowrap; 
   }
+  
   h2 { 
     font-size: 24px; 
   }
+  
   p, ul, li { 
     font-size: 16px; 
   }
+  
   .formula { 
     font-size: 18px; 
   }
+  
   .download-btn, #calcola-btn { 
     font-size: 16px; 
     padding: 10px 20px; 
   }
+  
   .valutazione-style select, .valutazione-style textarea, .valutazione-style input { 
     font-size: 14px; 
   }
