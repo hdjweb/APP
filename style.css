@@ -303,7 +303,7 @@ th, td {
         left: 0;
         top: 0;
         z-index: 1001; /* Sopra la sidebar */
-        height: 70px; /* Aumenta l'altezza per il titolo */
+        height: 100px; /* Aumenta l'altezza per il titolo */
         align-items: flex-start;
         padding-top: 10px;
         padding-left: 60px;
