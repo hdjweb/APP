@@ -16,7 +16,7 @@ html, body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 120%;
   height: 100px;
   background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
   display: flex;
