@@ -296,61 +296,78 @@ th, td {
 
 /* Media query dispositivi piccoli (mobile) */
 @media screen and (max-width: 768px) {
-  .top-bar {
-    height: 100px; /* Aumenta l'altezza su mobile per far stare il titolo */
-  }
-  .top-bar h1 {
-    font-size: 18px; /* Riduci la dimensione del carattere per adattarlo */
-    line-height: 1.2;
-    margin-left: 60px; /* Aggiungi spazio per il pulsante */
-    margin-right: 10px;
-  }
-  .toggle-btn {
-    font-size: 20px;
-    padding: 6px 10px;
-    top: 15px; /* Sposta il pulsante più in basso */
-    left: 10px;
-  }
-  .sidebar { 
-    width: 100%; 
-    transform: translateX(-100%); 
-    padding-top: 60px; 
-    padding-left: 0; 
-  }
-  .sidebar.active { 
-    transform: translateX(0); 
-  }
-  .contenuto { 
-    left: 0; 
-    top: 60px; 
-    padding: 20px; 
-  }
-  .sezione-contenuto { 
-    padding: 20px 10px; 
-  }
-  .sezioni-affiancate { 
-    flex-direction: column; 
-    gap: 20px; 
-  }
-  table { 
-    display: block; 
-    overflow-x: auto; 
-    white-space: nowrap; 
-  }
-  h2 { 
-    font-size: 24px; 
-  }
-  p, ul, li { 
-    font-size: 16px; 
-  }
-  .formula { 
-    font-size: 18px; 
-  }
-  .download-btn, #calcola-btn { 
-    font-size: 16px; 
-    padding: 10px 20px; 
-  }
-  .valutazione-style select, .valutazione-style textarea, .valutazione-style input { 
-    font-size: 14px; 
-  }
+    /* Impostazioni per la barra superiore e il pulsante */
+    .top-bar {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 1001; /* Sopra la sidebar */
+        height: 80px; /* Aumenta l'altezza per il titolo */
+        align-items: flex-start;
+        padding-top: 10px;
+        padding-left: 60px;
+    }
+    .top-bar h1 {
+        font-size: 16px;
+        line-height: 1.2;
+    }
+    .toggle-btn {
+        display: block; /* Rendi il pulsante visibile */
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+
+    /* Regole per la sidebar a scomparsa */
+    .sidebar {
+        width: 0;
+        transform: translateX(-100%);
+        box-shadow: none;
+        transition: transform 0.3s ease-in-out;
+        z-index: 1000;
+        padding-top: 60px;
+        position: fixed;
+        left: 0;
+    }
+    .sidebar.active {
+        width: 250px;
+        transform: translateX(0);
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    }
+    .sidebar a {
+        width: auto;
+    }
+
+    /* Regola per il contenuto */
+    .contenuto {
+        left: 0;
+        top: 80px;
+    }
+
+    /* Regole generali per le sezioni */
+    .sezione-contenuto {
+        padding: 0 10px;
+    }
+
+    /* Tabelle e layout affiancati */
+    .sezioni-affiancate {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .sezione {
+        flex: 1 1 auto;
+        min-width: unset;
+    }
+    
+    .sezione table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+
+    .sezione table th, .sezione table td {
+        white-space: nowrap;
+    }
 }
