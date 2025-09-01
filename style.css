@@ -8,10 +8,9 @@ html, body {
   background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9)), url('filigrana.png') center/contain no-repeat;
   background-blend-mode: lighten;
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
-/* Barra superiore e pulsante menu */
+/* Stili per la barra superiore e il menu */
 .top-bar {
   position: fixed;
   top: 0;
@@ -30,9 +29,11 @@ html, body {
   color: #003333;
   font-weight: 700;
   letter-spacing: 0.5px;
-  text-align: center;
 }
 .toggle-btn {
+  position: fixed;
+  top: 15px;
+  left: 20px;
   font-size: 24px;
   background-color: transparent;
   color: #003333;
@@ -41,22 +42,54 @@ html, body {
   cursor: pointer;
   z-index: 1100;
   border-radius: 5px;
-  /* Posizionamento assoluto all'interno del contenitore flessibile */
-  position: absolute; 
-  left: 20px; 
 }
 .toggle-btn:hover {
   background-color: rgba(0, 128, 128, 0.1);
 }
 
-/* Contenuto principale */
+/* Stili per la sidebar */
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
+  overflow: hidden;
+  transition: transform 0.3s ease; /* Usiamo transform per animazioni più fluide */
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 80px;
+  padding-left: 20px;
+}
+.sidebar.active {
+    transform: translateX(250px);
+}
+.sidebar a {
+  margin-top: 10px;
+  padding: 12px 0;
+  text-decoration: none;
+  font-size: 18px;
+  color: #003333;
+  text-align: left;
+  width: 100%;
+  transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+.sidebar a:hover {
+  background-color: rgba(0, 128, 128, 0.05);
+  padding-left: 10px;
+}
+
+/* Stili per il contenuto principale */
 .contenuto {
   position: absolute;
   top: 60px;
   left: 250px;
   right: 0;
   bottom: 0;
-  padding: 20px;
+  padding: 0;
   z-index: 1;
   overflow-y: auto;
 }
@@ -64,15 +97,15 @@ html, body {
   display: none;
   position: relative;
   max-width: 800px;
-  margin: auto;
+  z-index: 1;
   text-align: justify;
+  margin: auto;
 }
 .sezione-contenuto.active {
   display: block;
 }
 .sezione-contenuto.matrice-style {
   max-width: 1200px;
-  overflow-x: auto;
 }
 .sezione-contenuto.download-style {
   text-align: center;
@@ -84,7 +117,7 @@ html, body {
   text-align: center;
 }
 
-/* Testi e titoli */
+/* Stili per gli h2 e altri elementi di testo */
 h2 {
   font-size: 28px;
   color: #006633;
@@ -112,9 +145,7 @@ ul {
   text-align: center;
   margin: 20px 0;
 }
-
-/* Pulsanti download e calcolo */
-.download-btn, #calcola-btn {
+.download-btn {
   display: inline-block;
   background-color: #006633;
   color: white;
@@ -123,14 +154,12 @@ ul {
   text-decoration: none;
   border-radius: 6px;
   transition: background-color 0.3s ease;
-  border: none;
-  cursor: pointer;
 }
-.download-btn:hover, #calcola-btn:hover {
+.download-btn:hover {
   background-color: #004d26;
 }
 
-/* Form valutazione */
+/* Stili per form e input */
 .valutazione-style form {
   display: flex;
   flex-direction: column;
@@ -171,12 +200,22 @@ ul {
 .valutazione-style button:hover {
   background-color: #004d26;
 }
-
-/* Risultato calcolo */
+#calcola-btn {
+  background-color: #006633;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px 14px;
+}
+#calcola-btn:hover {
+  background-color: #004d26;
+}
 #risultato-calcolo {
   opacity: 0;
   font-size: 20px;
   font-weight: bold;
+  color: white;
   padding: 20px;
   margin-top: 30px;
   border-radius: 8px;
@@ -193,7 +232,7 @@ ul {
   display: inline-block;
 }
 
-/* Tabelle */
+/* Stili per le tabelle */
 .sezioni-affiancate {
   display: flex;
   gap: 40px;
@@ -209,7 +248,6 @@ table {
   border-collapse: collapse;
   margin-top: 10px;
   margin-bottom: 30px;
-  overflow-x: auto;
 }
 th, td {
   border: 1px solid #333;
@@ -244,12 +282,32 @@ th, td {
 .arancione { background-color: #ffff00; color: black; }
 .rosso { background-color: #ff9900; color: white; }
 .rosso-scuro { background-color: #ff3300; color: white; }
-.rischio-matrice td.valore-1, .rischio-matrice td.valore-2 { background-color: #00b050; }
-.rischio-matrice td.valore-3 { background-color: #92d050; }
-.rischio-matrice td.valore-4, .rischio-matrice td.valore-6 { background-color: #ffff00; color: black; }
-.rischio-matrice td.valore-8, .rischio-matrice td.valore-9 { background-color: #ff9900; color: white; }
-.rischio-matrice td.valore-12, .rischio-matrice td.valore-16 { background-color: #ff3300; color: white; }
-.rischio-matrice tr:nth-child(3) td:nth-child(3) { background-color: #92d050 !important; color: initial !important; }
+.rischio-matrice td.valore-1,
+.rischio-matrice td.valore-2 {
+  background-color: #00b050;
+}
+.rischio-matrice td.valore-3 {
+  background-color: #92d050;
+}
+.rischio-matrice td.valore-4,
+.rischio-matrice td.valore-6 {
+  background-color: #ffff00;
+  color: black;
+}
+.rischio-matrice td.valore-8,
+.rischio-matrice td.valore-9 {
+  background-color: #ff9900;
+  color: white;
+}
+.rischio-matrice td.valore-12,
+.rischio-matrice td.valore-16 {
+  background-color: #ff3300;
+  color: white;
+}
+.rischio-matrice tr:nth-child(3) td:nth-child(3) {
+  background-color: #92d050 !important;
+  color: initial !important;
+}
 .tabella-denominazione td {
   font-size: 14px;
   line-height: 1.4;
@@ -258,104 +316,86 @@ th, td {
   vertical-align: top;
 }
 
-/* Media query per dispositivi desktop (larghezze > 768px) */
-@media screen and (min-width: 769px) {
-    .sidebar {
-        width: 250px;
-        position: fixed;
-        top: 60px; /* Sotto la barra superiore */
-        left: 0;
-        height: calc(100% - 60px);
-        background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.95), rgba(214, 245, 242, 0.95));
-        overflow-y: auto;
-        z-index: 900;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-top: 20px;
-        padding-left: 20px;
-        transform: translateX(0); /* Rendi la barra visibile */
-    }
-
-    .contenuto {
-        margin-left: 250px; /* Sposta il contenuto per far spazio alla barra */
-        top: 60px;
-        padding-top: 20px;
-    }
-    
-    .toggle-btn {
-        display: none; /* Nascondi il pulsante del menu */
-    }
-}
-
-/* Media query per dispositivi mobili (larghezze <= 768px) */
+/* Media Query per dispositivi con larghezza massima di 768px (tablet e smartphone) */
 @media screen and (max-width: 768px) {
+  /* Adatta la barra superiore */
   .top-bar {
-    height: 100px;
+    justify-content: center;
   }
   .top-bar h1 {
-    font-size: 18px; 
-    line-height: 1.2;
-    margin-left: 60px;
-    margin-right: 10px;
+    font-size: 16px;
+    margin: 0;
   }
   .toggle-btn {
+    top: 10px;
+    left: 10px;
     font-size: 20px;
     padding: 6px 10px;
-    top: 15px; 
-    left: 10px;
   }
-  .sidebar { 
-    width: 0; 
-    transform: translateX(-100%); 
-    padding-top: 120px;
-    padding-left: 0; 
-    position: fixed;
-    top: 0;
+  
+  /* Nascondi la sidebar e posizionala sopra il contenuto */
+  .sidebar {
+    width: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    padding-top: 60px;
+    padding-left: 0;
+  }
+  .sidebar.active {
+    transform: translateX(0);
+  }
+  
+  /* Adatta il contenuto alla larghezza dello schermo */
+  .contenuto {
     left: 0;
-    height: 100%;
-    z-index: 1000;
+    top: 60px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  .sidebar.active { 
-    width: 250px;
-    transform: translateX(0); 
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  .sezione-contenuto {
+    padding: 20px 10px;
   }
-  .contenuto { 
-    left: 0; 
-    top: 80px; 
-    padding: 20px; 
+  
+  /* Riduci il padding delle sezioni specifiche */
+  #riferimenti,
+  #regola,
+  #bestpractice,
+  #valutazione {
+    padding-top: 0px;
   }
-  .sezione-contenuto { 
-    padding: 20px 10px; 
+  
+  /* Ottimizza le tabelle per schermi piccoli */
+  .sezioni-affiancate {
+    flex-direction: column;
+    gap: 20px;
   }
-  .sezioni-affiancate { 
-    flex-direction: column; 
-    gap: 20px; 
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
-  .sezione { 
-    flex: 1 1 auto; 
-    min-width: unset; 
+  
+  /* Riduci la dimensione dei font per maggiore leggibilità */
+  h2 {
+    font-size: 24px;
   }
-  table { 
-    display: block; 
-    overflow-x: auto; 
-    white-space: nowrap; 
+  p, ul, li {
+    font-size: 16px;
   }
-  h2 { 
-    font-size: 24px; 
+  .formula {
+    font-size: 18px;
   }
-  p, ul, li { 
-    font-size: 16px; 
+  
+  /* Regola la visualizzazione di pulsanti e form */
+  .download-btn,
+  #calcola-btn {
+    font-size: 16px;
+    padding: 10px 20px;
   }
-  .formula { 
-    font-size: 18px; 
-  }
-  .download-btn, #calcola-btn { 
-    font-size: 16px; 
-    padding: 10px 20px; 
-  }
-  .valutazione-style select, .valutazione-style textarea, .valutazione-style input { 
-    font-size: 14px; 
+  .valutazione-style select,
+  .valutazione-style textarea,
+  .valutazione-style input {
+    font-size: 14px;
   }
 }
