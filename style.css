@@ -320,7 +320,7 @@ th, td {
 @media screen and (max-width: 768px) {
   /* Adatta la barra superiore */
   .top-bar {
-    justify-content: flex-end; /* Sposta il pulsante a destra per maggiore visibilità */
+    justify-content: flex-end;
     padding: 0 10px;
     height: 50px;
   }
@@ -333,47 +333,45 @@ th, td {
   }
   .toggle-btn {
     top: 10px;
-    left: auto; /* Rimuovi il posizionamento fisso a sinistra */
-    right: 10px; /* E posizionalo a destra */
+    left: auto;
+    right: 10px;
     font-size: 20px;
     padding: 6px 10px;
-    color: #003333; /* Assicura che il colore del pulsante sia visibile */
-    z-index: 1200; /* Assicura che sia sempre in cima a tutto */
+    color: #003333;
+    z-index: 1200;
   }
 
   /* Nascondi la sidebar e posizionala sopra il contenuto */
   .sidebar {
-    width: 250px; /* Mantieni una larghezza fissa per il menu, non il 100% */
-    transform: translateX(-250px); /* Nasconde il menu fuori dallo schermo */
-    z-index: 1100; /* Assicura che il menu sia sopra il contenuto */
+    width: 250px;
+    transform: translateX(-250px);
+    z-index: 1100;
   }
   .sidebar.active {
-    transform: translateX(0); /* Mostra il menu animandolo da sinistra */
+    transform: translateX(0);
   }
   .sidebar a {
-    font-size: 16px; /* Riduci la dimensione dei font per schermi più piccoli */
+    font-size: 16px;
     padding: 10px 0;
   }
 
   /* Adatta il contenuto alla larghezza dello schermo */
   .contenuto {
-    position: relative; /* Cambia da 'absolute' a 'relative' per un flusso normale */
-    left: 0; /* Rimuovi il posizionamento a sinistra */
-    top: 50px; /* Rimuovi lo spazio superiore per il padding del body */
+    position: relative;
+    left: 0;
+    top: 50px;
     padding: 20px 15px;
   }
 
-  /* Stili per le tabelle per schermi piccoli */
+  /* Rimuovi la regola 'white-space' che causa lo scroll orizzontale */
   .sezioni-affiancate {
     flex-direction: column;
     gap: 20px;
   }
-
-  /* Rimuovi la regola 'white-space' che causa lo scroll orizzontale */
   table {
     display: block;
     overflow-x: auto;
-    white-space: normal; /* Modificato: evita lo scroll orizzontale eccessivo */
+    white-space: normal;
   }
   th, td {
     white-space: normal;
