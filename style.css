@@ -320,82 +320,70 @@ th, td {
 @media screen and (max-width: 768px) {
   /* Adatta la barra superiore */
   .top-bar {
-    justify-content: center;
+    justify-content: flex-end; /* Sposta il pulsante a destra per maggiore visibilità */
+    padding: 0 10px;
+    height: 50px;
   }
   .top-bar h1 {
     font-size: 16px;
-    margin: 0;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
   }
   .toggle-btn {
     top: 10px;
-    left: 10px;
+    left: auto; /* Rimuovi il posizionamento fisso a sinistra */
+    right: 10px; /* E posizionalo a destra */
     font-size: 20px;
     padding: 6px 10px;
+    color: #003333; /* Assicura che il colore del pulsante sia visibile */
+    z-index: 1200; /* Assicura che sia sempre in cima a tutto */
   }
-  
+
   /* Nascondi la sidebar e posizionala sopra il contenuto */
   .sidebar {
-    width: 100%;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    padding-top: 60px;
-    padding-left: 0;
+    width: 250px; /* Mantieni una larghezza fissa per il menu, non il 100% */
+    transform: translateX(-250px); /* Nasconde il menu fuori dallo schermo */
+    z-index: 1100; /* Assicura che il menu sia sopra il contenuto */
   }
   .sidebar.active {
-    transform: translateX(0);
+    transform: translateX(0); /* Mostra il menu animandolo da sinistra */
   }
-  
+  .sidebar a {
+    font-size: 16px; /* Riduci la dimensione dei font per schermi più piccoli */
+    padding: 10px 0;
+  }
+
   /* Adatta il contenuto alla larghezza dello schermo */
   .contenuto {
-    left: 0;
-    top: 60px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    position: relative; /* Cambia da 'absolute' a 'relative' per un flusso normale */
+    left: 0; /* Rimuovi il posizionamento a sinistra */
+    top: 50px; /* Rimuovi lo spazio superiore per il padding del body */
+    padding: 20px 15px;
   }
-  .sezione-contenuto {
-    padding: 20px 10px;
-  }
-  
-  /* Riduci il padding delle sezioni specifiche */
-  #riferimenti,
-  #regola,
-  #bestpractice,
-  #valutazione {
-    padding-top: 0px;
-  }
-  
-  /* Ottimizza le tabelle per schermi piccoli */
+
+  /* Stili per le tabelle per schermi piccoli */
   .sezioni-affiancate {
     flex-direction: column;
     gap: 20px;
   }
+
+  /* Rimuovi la regola 'white-space' che causa lo scroll orizzontale */
   table {
     display: block;
     overflow-x: auto;
-    white-space: nowrap;
+    white-space: normal; /* Modificato: evita lo scroll orizzontale eccessivo */
   }
-  
+  th, td {
+    white-space: normal;
+  }
+
   /* Riduci la dimensione dei font per maggiore leggibilità */
   h2 {
-    font-size: 24px;
+    font-size: 22px;
   }
   p, ul, li {
-    font-size: 16px;
-  }
-  .formula {
-    font-size: 18px;
-  }
-  
-  /* Regola la visualizzazione di pulsanti e form */
-  .download-btn,
-  #calcola-btn {
-    font-size: 16px;
-    padding: 10px 20px;
-  }
-  .valutazione-style select,
-  .valutazione-style textarea,
-  .valutazione-style input {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
