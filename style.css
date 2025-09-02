@@ -1,387 +1,274 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-/* Stili di base */
-html, body {
-  margin: 0;
-  height: 100%;
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9)), url('filigrana.png') center/contain no-repeat;
-  background-blend-mode: lighten;
-  line-height: 1.6;
+/* Stili generali */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* Stili per la barra superiore e il menu */
-.top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-.top-bar h1 {
-  margin: 0;
-  font-size: 20px;
-  color: #003333;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-.toggle-btn {
-  position: fixed;
-  top: 15px;
-  left: 20px;
-  font-size: 24px;
-  background-color: transparent;
-  color: #003333;
-  padding: 8px 12px;
-  border: none;
-  cursor: pointer;
-  z-index: 1100;
-  border-radius: 5px;
-}
-.toggle-btn:hover {
-  background-color: rgba(0, 128, 128, 0.1);
-}
-
-/* Stili per la sidebar */
-.sidebar {
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  top: 0;
-  left: -250px;
-  background: linear-gradient(to bottom right, rgba(230, 252, 250, 0.9), rgba(214, 245, 242, 0.9));
-  overflow: hidden;
-  transition: transform 0.3s ease; /* Usiamo transform per animazioni più fluide */
-  z-index: 900;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-top: 80px;
-  padding-left: 20px;
-}
-.sidebar.active {
-    transform: translateX(250px);
-}
-.sidebar a {
-  margin-top: 10px;
-  padding: 12px 0;
-  text-decoration: none;
-  font-size: 18px;
-  color: #003333;
-  text-align: left;
-  width: 100%;
-  transition: background-color 0.3s ease, padding-left 0.3s ease;
-}
-.sidebar a:hover {
-  background-color: rgba(0, 128, 128, 0.05);
-  padding-left: 10px;
-}
-
-/* Stili per il contenuto principale */
-.contenuto {
-  position: absolute;
-  top: 60px;
-  left: 250px;
-  right: 0;
-  bottom: 0;
-  padding: 0;
-  z-index: 1;
-  overflow-y: auto;
-}
-.sezione-contenuto {
-  display: none;
-  position: relative;
-  max-width: 800px;
-  z-index: 1;
-  text-align: justify;
-  margin: auto;
-}
-.sezione-contenuto.active {
-  display: block;
-}
-.sezione-contenuto.matrice-style {
-  max-width: 1200px;
-}
-.sezione-contenuto.download-style {
-  text-align: center;
-}
-.sezione-contenuto.download-style p {
-  margin-bottom: 30px;
-}
-.sezione-contenuto.valutazione-style p {
-  text-align: center;
-}
-
-/* Stili per gli h2 e altri elementi di testo */
-h2 {
-  font-size: 28px;
-  color: #006633;
-  margin-bottom: 20px;
-  text-align: center;
-}
-p, ul, li {
-  font-size: 20px;
-  color: #333;
-}
-ul {
-  padding-left: 20px;
-}
-.sottotitolo {
-  font-size: 18px;
-  color: #004d33;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  text-align: center;
-}
-.formula {
-  font-size: 22px;
-  font-weight: bold;
-  color: #004d33;
-  text-align: center;
-  margin: 20px 0;
-}
-.download-btn {
-  display: inline-block;
-  background-color: #006633;
-  color: white;
-  font-size: 18px;
-  padding: 12px 24px;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-}
-.download-btn:hover {
-  background-color: #004d26;
-}
-
-/* Stili per form e input */
-.valutazione-style form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-.valutazione-style label {
-  font-size: 18px;
-  color: #006633;
-  font-weight: bold;
-  margin-top: 10px;
-}
-.valutazione-style select,
-.valutazione-style textarea,
-.valutazione-style input {
-  font-size: 16px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-family: 'Roboto', sans-serif;
-}
-.valutazione-style textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-.valutazione-style button {
-  font-size: 18px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: #006633;
-  color: white;
-  align-self: center;
-  margin-top: 20px;
-}
-.valutazione-style button:hover {
-  background-color: #004d26;
-}
-#calcola-btn {
-  background-color: #006633;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 5px 14px;
-}
-#calcola-btn:hover {
-  background-color: #004d26;
-}
-#risultato-calcolo {
-  opacity: 0;
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  padding: 20px;
-  margin-top: 30px;
-  border-radius: 8px;
-  white-space: pre-line;
-  transition: opacity 0.6s ease-in-out;
-}
-#risultato-calcolo.visibile {
-  opacity: 1;
-}
-#valoreR {
-  font-weight: bold;
-  padding: 2px 8px;
-  border-radius: 5px;
-  display: inline-block;
-}
-
-/* Stili per le tabelle */
-.sezioni-affiancate {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.sezione {
-  flex: 1 1 450px;
-  min-width: 300px;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-  margin-bottom: 30px;
-}
-th, td {
-  border: 1px solid #333;
-  padding: 10px;
-  text-align: center;
-  font-size: 16px;
-}
-.intestazione-probabilita,
-.intestazione-matrice {
-  background-color: #006633;
-  color: white;
-}
-.intestazione-impatto {
-  background-color: #003366;
-  color: white;
-}
-.intestazione-denominazione,
-.tabella-denominazione th {
-  background-color: #444444;
-  color: white;
-}
-.raro { background-color: #b6e3b6; }
-.improbabile { background-color: #d9f2d9; }
-.probabile { background-color: #fff6b0; }
-.quasi-certo { background-color: #f5b5b5; }
-.impatto-basso { background-color: #cce5ff; }
-.impatto-medio { background-color: #b3d1ff; }
-.impatto-alto { background-color: #99bbff; }
-.impatto-critico { background-color: #809fff; }
-.verde { background-color: #00b050; color: white; }
-.giallo { background-color: #92d050; color: black; }
-.arancione { background-color: #ffff00; color: black; }
-.rosso { background-color: #ff9900; color: white; }
-.rosso-scuro { background-color: #ff3300; color: white; }
-.rischio-matrice td.valore-1,
-.rischio-matrice td.valore-2 {
-  background-color: #00b050;
-}
-.rischio-matrice td.valore-3 {
-  background-color: #92d050;
-}
-.rischio-matrice td.valore-4,
-.rischio-matrice td.valore-6 {
-  background-color: #ffff00;
-  color: black;
-}
-.rischio-matrice td.valore-8,
-.rischio-matrice td.valore-9 {
-  background-color: #ff9900;
-  color: white;
-}
-.rischio-matrice td.valore-12,
-.rischio-matrice td.valore-16 {
-  background-color: #ff3300;
-  color: white;
-}
-.rischio-matrice tr:nth-child(3) td:nth-child(3) {
-  background-color: #92d050 !important;
-  color: initial !important;
-}
-.tabella-denominazione td {
-  font-size: 14px;
-  line-height: 1.4;
-  max-height: 120px;
-  overflow-y: auto;
-  vertical-align: top;
-}
-
-/* Media Query per dispositivi con larghezza massima di 768px (tablet e smartphone) */
-@media screen and (max-width: 768px) {
-  /* Adatta la barra superiore */
-  .top-bar {
-    justify-content: flex-end;
-    padding: 0 10px;
-    height: 50px;
-  }
-  .top-bar h1 {
-    font-size: 16px;
+/* Header e navbar */
+header {
+    background-color: #004d99;
+    color: white;
+    padding: 0.35rem 1.5rem;
     text-align: center;
-    position: absolute;
-    width: 100%;
-    left: 0;
-  }
-  .toggle-btn {
-    top: 10px;
-    left: auto;
-    right: 10px;
-    font-size: 20px;
-    padding: 6px 10px;
-    color: #003333;
-    z-index: 1200;
-  }
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-  /* Nascondi la sidebar e posizionala sopra il contenuto */
-  .sidebar {
-    width: 250px;
-    transform: translateX(-250px);
-    z-index: 1100;
-  }
-  .sidebar.active {
-    transform: translateX(0);
-  }
-  .sidebar a {
-    font-size: 16px;
-    padding: 10px 0;
-  }
+.main-title {
+    margin: 0;
+    font-size: 1.2rem;
+}
 
-  /* Adatta il contenuto alla larghezza dello schermo */
-  .contenuto {
+.navbar {
+    margin-top: 1rem;
     position: relative;
-    left: 0;
-    top: 50px;
-    padding: 20px 15px;
-  }
+}
 
-  /* Rimuovi la regola 'white-space' che causa lo scroll orizzontale */
-  .sezioni-affiancate {
-    flex-direction: column;
-    gap: 20px;
-  }
-  table {
+.nav-toggle {
     display: block;
-    overflow-x: auto;
-    white-space: normal;
-  }
-  th, td {
-    white-space: normal;
-  }
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    cursor: pointer;
+}
 
-  /* Riduci la dimensione dei font per maggiore leggibilità */
-  h2 {
-    font-size: 22px;
-  }
-  p, ul, li {
-    font-size: 15px;
-  }
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #004d99;
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+.nav-menu li {
+    text-align: center;
+}
+
+.nav-menu li a {
+    display: block;
+    color: white;
+    padding: 0.75rem 0;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu li a:hover,
+.nav-menu li a.active {
+    background-color: #003366;
+}
+
+/* Main e sezioni */
+main {
+    padding: 1.5rem;
+}
+
+.page-section {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.page-section.active {
+    display: block;
+}
+
+h2 {
+    color: #004d99;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+}
+
+ul {
+    padding-left: 1.25rem;
+}
+
+.download-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.contact-form label,
+.contact-form input,
+.contact-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #004d99;
+    color: white;
+    margin-top: 2rem;
+}
+
+/* --- Sezione Regola Generale --- */
+.formula-text-centered {
+    text-align: center;
+    font-size: 1.6rem;
+    background-color: #a7f804; /* Verde acqua chiaro */
+    padding: 0.5rem 1rem; /* Aggiunge un po' di spazio interno */
+    border-radius: 5px; /* Arrotonda gli angoli */
+    width: fit-content; /* Rende lo sfondo grande quanto il testo */
+    margin: 1rem auto; /* Centra il blocco e aggiunge spazio */
+}
+
+
+.formula-calcolo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.formula-text {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.formula-text input {
+    width: 50px;
+    padding: 5px;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.formula-button button {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.formula-button button:hover {
+    background-color: #0056b3;
+}
+
+#risultato-calcolo {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* --- Tabelle del Rischio --- */
+.risk-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.risk-item h3 {
+    text-align: center;
+    color: #004d99;
+    margin-bottom: 0.5rem;
+}
+
+.risk-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Overlay per ingrandimento immagine */
+.risk-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.risk-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+.risk-overlay.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Media Query Desktop */
+@media (min-width: 768px) {
+    body { font-size: 1.3rem; }
+    .main-title { font-size: 2rem; }
+    .nav-toggle { display: none; }
+    header { padding: 1rem 1.5rem; }
+    .navbar { margin-top: 0; display: flex; justify-content: center; }
+    .nav-menu { display: flex; flex-direction: row; width: auto; }
+    .nav-menu li a { padding: 0.75rem 1.25rem; }
+    .download-links { flex-direction: row; justify-content: center; }
+    .btn { width: auto; padding: 0.75rem 2rem; }
+    #normative ul { margin-left: 4rem; }
+    .risk-images { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Giustifica testo sezione Best Practice Aeronautiche */
+#practice p,
+#practice ul {
+    text-align: justify;
 }
