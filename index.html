@@ -2,275 +2,158 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Guida al rischio aeronautico</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione del Rischio Aeronautico</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    
-    <div class="top-bar">
-        <button class="toggle-btn">☰</button>
-        <h1>Guida al Calcolo della Gestione del Rischio nel settore Aereonautico</h1>
-    </div>
 
-    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-
-    <div id="sidebar" class="sidebar">
-        <a href="#" onclick="carica('home')">Home</a>
-        <a href="#" onclick="carica('riferimenti')">Riferimenti Normativi</a>
-        <a href="#" onclick="carica('matrice')">Matrice del Rischio</a>
-        <a href="#" onclick="carica('regola')">Regola Generale</a>
-        <a href="#" onclick="carica('bestpractice')">Best Practice Aereonautiche</a>
-        <a href="#" onclick="carica('download')">Download</a>
-        <a href="#" onclick="carica('valutazione')">Valutazione Finale</a>
-    </div>
-
-    <div class="contenuto">
-        <div id="home" class="sezione-contenuto active">
-            <h2>Introduzione</h2>
-            <p>
-                Il sito è dedicato al calcolo del fattore di rischio per le aziende aeronautiche. Attraverso il menu laterale è possibile accedere alle varie aree tematiche, ciascuna dedicata a un aspetto specifico del processo: i riferimenti normativi di settore, la visualizzazione e interpretazione delle matrici di rischio, la simulazione dei calcoli secondo la regola generale, le Best Practice da adottare, la documentazione disponibile in formato PDF e la valutazione complessiva del servizio offerto.
-            </p>
-        </div>
-
-        <div id="riferimenti" class="sezione-contenuto">
-            <h2>Riferimenti Normativi</h2>
-            <p>
-                Di seguito sono riportati i principali riferimenti normativi e standard che costituiscono la base per il calcolo del fattore di rischio e la gestione della sicurezza:
-            </p>
-            <ul>
-                <li><strong>Regolamento UE 2016/679 (GDPR)</strong>: obblighi per la protezione dei dati personali di dipendenti, clienti e fornitori;</li>
-                <li><strong>EASA Cybersecurity Framework</strong>: linee guida per la sicurezza informatica e protezione dei dati nel settore aeronautico;</li>
-                <li><strong>ISO/IEC 27035</strong>: linee guida per l’identificazione, l’analisi e la risposta agli incidenti informatici, con indicazioni sulle misure di prevenzione;</li>
-                <li><strong>LSMS & ISO/IEC 27001</strong>: standard interni e internazionali per la gestione della sicurezza delle informazioni;</li>
-                <li><strong>D.lgs. 81/2008</strong>: riferimento legislativo relativo alla sicurezza fisica e organizzativa dei lavoratori;</li>
-                <li><strong>Standard interni di sicurezza</strong> e politiche aziendali configurate seguendo le linee guida dell’Agenzia europea per la sicurezza aerea (EASA) e degli enti nazionali di certificazione.</li>
+    <header>
+        <h1 class="main-title">Gestione del Rischio Aeronautico</h1>
+        <nav class="navbar">
+            <a href="javascript:void(0);" class="nav-toggle" id="nav-toggle">
+                <i class="fa fa-bars"></i>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#" data-section="home" class="nav-link active">Home</a></li>
+                <li><a href="#" data-section="normative" class="nav-link">Riferimenti normativi</a></li>
+                <li><a href="#" data-section="tabelle" class="nav-link">Tabelle del Rischio</a></li>
+                <li><a href="#" data-section="regola" class="nav-link">Regola Generale</a></li>
+                <li><a href="#" data-section="practice" class="nav-link">Best Practice Aereonautiche</a></li>
+                <li><a href="#" data-section="download" class="nav-link">Download</a></li>
+                <li><a href="#" data-section="valutazione" class="nav-link">Valutazione Finale</a></li>
             </ul>
-        </div>
+        </nav>
+    </header>
 
-        <div id="matrice" class="sezione-contenuto matrice-style">
-            <h2>Tabelle di Impatto, Probabilità e Matrice del Rischio</h2>
-            <div class="sezioni-affiancate">
-                <div class="sezione">
-                    <p class="sottotitolo">Valutazione delle probabilità legata alla periodicità degli eventi (P)</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="intestazione-probabilita">Livello</th>
-                                <th class="intestazione-probabilita">Descrizione</th>
-                                <th class="intestazione-probabilita">Periodicità</th>
-                                <th class="intestazione-probabilita">Probabilità</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="raro"><td>1</td><td>Raro</td><td>10 Anni</td><td>Bassa</td></tr>
-                            <tr class="improbabile"><td>2</td><td>Improbabile</td><td>5 Anni</td><td>Moderata</td></tr>
-                            <tr class="probabile"><td>3</td><td>Probabile</td><td>1 Mese</td><td>Alta</td></tr>
-                            <tr class="quasi-certo"><td>4</td><td>Quasi Certo</td><td>1 Settimana</td><td>Molto Alta</td></tr>
-                        </tbody>
-                    </table>
+    <main>
+        <section id="home" class="page-section active">
+            <h2>Home</h2>
+            <p>Benvenuti sul sito dedicato alla 'Gestione del Rischio Aeronautico', la piattaforma è interamente dedicata al calcolo del fattore di rischio per le aziende aeronautiche. Attraverso il menu laterale è possibile esplorare le varie sezioni, ognuna di esse dedicata a un aspetto specifico per il processo in esame: i riferimenti normativi di settore, la visualizzazione e l'interpretazione delle matrici di rischio, la simulazione dei calcoli secondo la regola generale, le Best Practice da adottare, la documentazione disponibile in formato PDF e infine la valutazione complessiva del servizio offerto. L'obiettivo è di supportare i professionisti e le aziende nel raggiungimento di standard di sicurezza sempre più elevati, fornendo gli strumenti necessari per una gestione consapevole e accurata del rischio.</p>
+        </section>
+
+        <section id="normative" class="page-section">
+            <h2>Riferimenti normativi</h2>
+            <p>Di seguito sono riportati i principali riferimenti normativi e standard che costituiscono la base per il calcolo del fattore di rischio e la gestione della sicurezza:</p>
+            <ul>
+                <li><strong>Regolamento UE 2016/679 (GDPR):</strong> obblighi per la protezione dei dati personali di dipendenti, clienti e fornitori;</li>
+                <li><strong>EASA (European Union Aviation Safety Agency):</strong> agenzia europea che stabilisce i requisiti tecnici e le procedure per la sicurezza aerea in Europa, incluse linee guida specifiche come l'EASA Cybersecurity Framework;</li>
+                <li><strong>ICAO (International Civil Aviation Organization):</strong> agenzia specializzata delle Nazioni Unite che stabilisce standard globali. L'Annesso 19 - Safety Management - è fondamentale per l'implementazione dei Sistemi di Gestione della Sicurezza (SMS);</li>
+                <li><strong>ENAC (Ente Nazionale per l'Aviazione Civile):</strong> autorità italiana che applica e supervisiona l'implementazione delle normative EASA e ICAO sul territorio nazionale;</li>
+                <li><strong>ISO/IEC 27035:</strong> linee guida per l’identificazione, l’analisi e la risposta agli incidenti informatici, con indicazioni sulle misure di prevenzione;</li>
+                <li><strong>LSMS & ISO/IEC 27001:</strong> standard interni e internazionali per la gestione della sicurezza delle informazioni;</li>
+                <li><strong>D.lgs. 81/2008:</strong> riferimento legislativo relativo alla sicurezza fisica e organizzativa dei lavoratori;</li>
+                <li><strong>Standard interni di sicurezza:</strong> politiche aziendali configurate seguendo le linee guida degli enti nazionali e sovranazionali di certificazione.</li>
+            </ul>
+        </section>
+
+        <section id="tabelle" class="page-section">
+            <h2>Tabelle del Rischio</h2>
+            <p>La valutazione del rischio si basa sulla combinazione di due fattori: la <strong>Probabilità</strong> che un evento si verifichi e l' <strong>Impatto</strong> che genera le conseguenze. 
+                Le tabelle del rischio rappresentano strumenti essenziali per l’analisi, consentendo l’incrocio sistematico dei due parametri al fine di determinare in maniera quantitativa il fattore di rischio.<br>
+                Di seguito sono riportate le tabelle utilizzate per il calcolo:</p>
+                
+                <div class="risk-images">
+                    <div class="risk-item">
+                        <h3>Valutazione delle Probabilità (P)</h3><br>
+                        <img src="1.png" alt="Tabella del rischio 1">
+                    </div>
+
+                    <div class="risk-item">
+                        <h3>Valutazione dell' Impatto (I)</h3><br>
+                        <img src="2.png" alt="Tabella del rischio 2">
+                    </div>
+
+                    <div class="risk-item">
+                        <h3>Matrice di Calcolo del Rischio</h3><br>
+                        <img src="3.png" alt="Tabella del rischio 3">
+                    </div>
+
+                    <div class="risk-item">
+                        <h3>Denominazione del Rischio</h3><br>
+                        <img src="4.jpg" alt="Tabella del rischio 4">
+                    </div>
+
                 </div>
+            </section>
 
-                <div class="sezione">
-                    <p class="sottotitolo">Valutazione dell'impatto specifico (I)</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="intestazione-impatto">Indice</th>
-                                <th class="intestazione-impatto">Impatto</th>
-                                <th class="intestazione-impatto">Descrizione</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="impatto-basso"><td>1</td><td>Limitato</td><td>Dati non critici e danni limitati</td></tr>
-                            <tr class="impatto-medio"><td>2</td><td>Medio</td><td>Dati tecnici parzialmente compromessi con leggeri ritardi operativi</td></tr>
-                            <tr class="impatto-alto"><td>3</td><td>Medio-Alto</td><td>Dati essenziali alterati o distrutti con ritardi produttivi e sanzioni</td></tr>
-                            <tr class="impatto-critico"><td>4</td><td>Alto</td><td>Perdita di dati sensibili con conseguenze legali e danni reputazionali</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
-            <div class="sezioni-affiancate">
-                <div class="sezione">
-                    <p class="sottotitolo">Matrice del calcolo del rischio</p>
-                    <table class="rischio-matrice">
-                        <thead>
-                            <tr>
-                                <th class="intestazione-matrice">Impatto \ Probabilità</th>
-                                <th class="intestazione-matrice">RARO (1)</th>
-                                <th class="intestazione-matrice">IMPROBABILE (2)</th>
-                                <th class="intestazione-matrice">PROBABILE (3)</th>
-                                <th class="intestazione-matrice">QUASI CERTO (4)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>ALTO (4)</strong></td>
-                                <td class="valore-4">4</td>
-                                <td class="valore-8">8</td>
-                                <td class="valore-12">12</td>
-                                <td class="valore-16">16</td>
-                            </tr>
-                            <tr>
-                                <td><strong>MEDIO-ALTO (3)</strong></td>
-                                <td class="valore-3">3</td>
-                                <td class="valore-6">6</td>
-                                <td class="valore-9">9</td>
-                                <td class="valore-12">12</td>
-                            </tr>
-                            <tr>
-                                <td><strong>MEDIO (2)</strong></td>
-                                <td class="valore-2">2</td>
-                                <td class="valore-4">4</td>
-                                <td class="valore-6">6</td>
-                                <td class="valore-8">8</td>
-                            </tr>
-                            <tr>
-                                <td><strong>LIMITATO (1)</strong></td>
-                                <td class="valore-1">1</td>
-                                <td class="valore-2">2</td>
-                                <td class="valore-3">3</td>
-                                <td class="valore-4">4</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="sezione">
-                    <p class="sottotitolo">Denominazione del rischio</p>
-                    <table class="tabella-denominazione">
-                        <thead>
-                            <tr>
-                                <th class="intestazione-denominazione">Denominazione</th>
-                                <th class="intestazione-denominazione">Range Numerico</th>
-                                <th class="intestazione-denominazione">Descrizione</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="verde">
-                                <td>Rischio Basso</td>
-                                <td>1 ≤ R ≤ 2</td>
-                                <td>Violazioni non critiche per integrità, riservatezza o disponibilità.</td>
-                            </tr>
-                            <tr class="giallo">
-                                <td>Rischio Limitato</td>
-                                <td>3 ≤ R ≤ 4</td>
-                                <td>Livello medio-basso. Richiede monitoraggio e azioni correttive programmate.</td>
-                            </tr>
-                            <tr class="arancione">
-                                <td>Rischio Medio</td>
-                                <td>4 &lt; R ≤ 6</td>
-                                <td>Conseguenze non trascurabili. Necessario ripristino della sicurezza.</td>
-                            </tr>
-                            <tr class="rosso">
-                                <td>Rischio Medio-Alto</td>
-                                <td>6 &lt; R ≤ 8</td>
-                                <td>Minacce significative. Intervento urgente richiesto.</td>
-                            </tr>
-                            <tr class="rosso-scuro">
-                                <td>Rischio Alto</td>
-                                <td>8 &lt; R ≤ 10</td>
-                                <td>Impatti gravi. Azioni correttive rigorose e immediate con notifica all’Autorità.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div id="regola" class="sezione-contenuto regola-style">
+        <section id="regola" class="page-section">
             <h2>Regola Generale</h2>
-            <p>
-                La regola generale fornisce la base per il calcolo del fattore di rischio, combinando la probabilità di occorrenza di un evento 
-                con la gravità delle sue conseguenze.
-            </p>
-            <div class="formula">R = P × I</div>
+            <p>La regola generale fornisce la base per il calcolo del fattore di rischio, combinando la probabilità di occorrenza di un evento con la gravità delle sue conseguenze.</p>
+            <div class="formula">
+                <p class="formula-text-centered"><strong>R = I × P</strong></p>
+            </div>
             <ul>
                 <li><strong>R</strong> = Fattore di Rischio</li>
                 <li><strong>P</strong> = Probabilità che si verifichi una violazione o un incidente di sicurezza/privacy</li>
                 <li><strong>I</strong> = Impatto o gravità con annesse conseguenze aziendali</li>
             </ul>
-            <p>
-                Questa formula permette di tradurre in un valore numerico il livello di rischio, utile per definire priorità di intervento 
-                e misure di mitigazione.
-            </p>
-            <h2>Simulazione del calcolo del fattore di rischio</h2>
-            <p><em>Inserire gli indici inerenti all'impatto (I) e alla probabilità (P) (da 1 a 4).</em></p>
-            <p style="text-align:center; font-size:18px;">
-                <span style="font-weight:bold;">R = </span>
-                <input type="number" id="inputI" placeholder="I" min="1" max="4">
-                ×
-                <input type="number" id="inputP" placeholder="P" min="1" max="4">
-                <span>= <span id="valoreR">?</span></span>
-            </p>
-            <p style="text-align:center;">
-                <button id="calcola-btn" onclick="calcolaR()">Calcola</button>
-            </p>
-            <div id="risultato-calcolo"></div>
-        </div>
+            <p>Questa formula permette di tradurre in un valore numerico il livello di rischio, utile per definire priorità di intervento e misure di mitigazione.</p>
 
-        <div id="bestpractice" class="sezione-contenuto best-practice-style">
-            <h2>Best Practice</h2>
+            <h3>Simulazione del calcolo del fattore di rischio</h3>
+            <p>Inserisci gli indici inerenti all'impatto (I) e alla probabilità (P) (da 1 a 4).</p>
+            <div class="formula-calcolo">
+                <p class="formula-text">
+                    <span class="bold">R = </span>
+                    <input type="number" id="inputI" placeholder="I" min="1" max="4">
+                    ×
+                    <input type="number" id="inputP" placeholder="P" min="1" max="4">
+                    <span>= <span id="valoreR">?</span></span>
+                </p>
+                
+                <p class="formula-button">
+                    <button id="calcola-btn">Calcola</button>
+                </p>
+                <div id="risultato-calcolo"></div>
+            </div>
+        </section>
+
+        <section id="practice" class="page-section">
+            <h2>Best Practice Aeronautiche</h2>
             <p>In questa pagina sono riportati alcuni suggerimenti da adottare in un’azienda aeronautica per prevenire o ridurre i rischi legati alla sicurezza e alla privacy:</p>
+            
             <ul>
-                <li><strong>Miglioramento continuo del LSMS</strong> (Leonardo Security Management System) per garantire efficacia e conformità agli standard di sicurezza aeronautica, affrontare nuove minacce e vulnerabilità, e rispondere adeguatamente ai requisiti normativi e ai possibili attacchi di Cyber Security.</li>
-                <li><strong>Formazione continua e specializzata</strong>, con corsi incentrati sulle procedure e le politiche di LSMS, per offrire maggiore consapevolezza in ambito di sicurezza informatica e regolamentazione privacy nel settore aeronautico all’intera popolazione aziendale.</li>
-                <li><strong>Controllo rigoroso degli accessi fisici</strong> ai sistemi, con autenticazione biometrica e limitazione dei privilegi utente, ispezionato da un monitoraggio continuo e audit interni.</li>
-                <li><strong>Definizione di Recovery Plan e Incident Response</strong> da adottare nel settore aeronautico, aerospaziale e della difesa, per garantire continuità operativa e sicurezza dei dati trattati ed elaborati. Audit regolari e valutazioni di rischio aggiornate, in linea con i riferimenti normativi e tecnologici nel settore aeronautico.</li>
-                <li><strong>Collaborazione con enti regolatori e certificatori</strong> (EASA, ENAC, FAA) e partecipazione a incontri di settore per aggiornamenti costanti sulle minacce emergenti.</li>
+                <li><strong>Miglioramento continuo del LSMS (Leonardo Security Management System):</strong> Garantire efficacia e conformità agli standard di sicurezza aeronautica, affrontare nuove minacce e vulnerabilità, e rispondere adeguatamente ai requisiti normativi e ai possibili attacchi di Cyber Security.</li>
+                <li><strong>Formazione continua e specializzata:</strong> Organizzare corsi incentrati sulle procedure e le politiche di LSMS, per offrire maggiore consapevolezza in ambito di sicurezza informatica e regolamentazione privacy nel settore aeronautico all’intera popolazione aziendale.</li>
+                <li><strong>Controllo rigoroso degli accessi fisici:</strong> Adottare l'autenticazione biometrica e la limitazione dei privilegi utente, con monitoraggio continuo e audit interni.</li>
+                <li><strong>Definizione di Recovery Plan e Incident Response:</strong> Elaborare piani specifici per il settore aeronautico, aerospaziale e della difesa, per garantire continuità operativa e sicurezza dei dati trattati ed elaborati.</li>
+                <li><strong>Audit regolari e valutazioni di rischio aggiornate:</strong> Mantenere il sistema di sicurezza in linea con i riferimenti normativi e tecnologici in evoluzione.</li>
+                <li><strong>Collaborazione con enti regolatori e certificatori:</strong> Partecipare a incontri di settore con enti come EASA, ENAC, FAA per un aggiornamento costante sulle minacce emergenti.</li>
             </ul>
-        </div>
+        </section>
 
-        <div id="download" class="sezione-contenuto download-style">
-            <h2>Scarica la Guida</h2>
-            <p>
-                È disponibile per il download il documento <strong>"Guida al calcolo del fattore di rischio"</strong>, che contiene tutte le informazioni necessarie per comprendere e applicare correttamente il metodo di valutazione.
-            </p>
-            <a class="download-btn" href="Guida al calcolo del fattore di rischio.pdf" download>
-                📥 Scarica la Guida
-            </a>
-        </div>
+        <section id="download" class="page-section">
+            <h2>Download</h2>
+            <p>In questa sezione è disponibile il download del documento "Guida al calcolo del fattore di rischio", all'interno del quale è possibile visionare le informazioni e le linee guida necessarie per il calcolo del fattore di rischio.</p>
+            <div class="download-links">
+                <a href="#" class="btn" download>Scarica la guida (PDF)</a>
+            </div>
+        </section>
 
-        <div id="valutazione" class="sezione-contenuto valutazione-style">
+        <section id="valutazione" class="page-section">
             <h2>Valutazione Finale</h2>
-            <p>
-                Ti chiediamo di valutare l'elaborato rispondendo alle seguenti domande. Il tuo feedback sarà inviato direttamente al nostro indirizzo email nel pieno rispetto della privacy.
-            </p>
-            <form action="mailto:hdjweb@gmail.com" method="post" enctype="text/plain">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="Nome" required>
+            <p>Per una valutazione personalizzata del tuo sistema di gestione del rischio, compila il modulo sottostante. Il nostro team di esperti analizzerà le informazioni e fornirà un feedback dettagliato per aiutarti a migliorare la sicurezza delle tue operazioni.</p>
+            <form action="#" method="post" class="contact-form">
+                <label for="nome">Nome e Cognome:</label>
+                <input type="text" id="nome" name="nome" required>
+                
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="Email" required>
-                <label for="chiarezza">Quanto è chiaro l'elaborato?</label>
-                <select id="chiarezza" name="Chiarezza">
-                    <option value="Molto chiaro">Molto chiaro</option>
-                    <option value="Abbastanza chiaro">Abbastanza chiaro</option>
-                    <option value="Poco chiaro">Poco chiaro</option>
-                    <option value="Per niente chiaro">Per niente chiaro</option>
-                </select>
-                <label for="completezza">Quanto è completo il contenuto?</label>
-                <select id="completezza" name="Completezza">
-                    <option value="Molto completo">Molto completo</option>
-                    <option value="Abbastanza completo">Abbastanza completo</option>
-                    <option value="Poco completo">Poco completo</option>
-                    <option value="Incompleto">Incompleto</option>
-                </select>
-                <label for="utilità">Quanto è utile per te?</label>
-                <select id="utilità" name="Utilità">
-                    <option value="Molto utile">Molto utile</option>
-                    <option value="Abbastanza utile">Abbastanza utile</option>
-                    <option value="Poco utile">Poco utile</option>
-                    <option value="Inutile">Inutile</option>
-                </select>
-                <label for="feedback">Feedback aggiuntivo:</label>
-                <textarea id="feedback" name="Feedback"></textarea>
-                <button type="submit">Invia Valutazione</button>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="messaggio">Descrivi il tuo sistema attuale:</label>
+                <textarea id="messaggio" name="messaggio" rows="5" required></textarea>
+                
+                <button type="submit" class="btn">Invia Valutazione</button>
             </form>
-        </div>
-    </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Gestione del Rischio Aeronautico. Tutti i diritti riservati.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
