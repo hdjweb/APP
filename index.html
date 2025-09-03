@@ -131,29 +131,51 @@
                 <a href="#" class="btn" download>Scarica la guida (PDF)</a>
             </div>
         </section>
-
+        
         <section id="valutazione" class="page-section">
             <h2>Valutazione Finale</h2>
-            <p>Per una valutazione personalizzata del tuo sistema di gestione del rischio, compila il modulo sottostante. Il nostro team di esperti analizzerà le informazioni e fornirà un feedback dettagliato per aiutarti a migliorare la sicurezza delle tue operazioni.</p>
-            <form action="#" method="post" class="contact-form">
-                <label for="nome">Nome e Cognome:</label>
-                <input type="text" id="nome" name="nome" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="messaggio">Descrivi il tuo sistema attuale:</label>
-                <textarea id="messaggio" name="messaggio" rows="5" required></textarea>
-                
-                <button type="submit" class="btn">Invia Valutazione</button>
+            <p>Per migliorare i contenuti e valutare il lavoro, si prega di rispondere ad alcune semplici domande. Il feedback finale verrà inviato all'indirizzo email del creatore della pagina, garantendo il pieno rispetto della privacy.</p>
+            <form action="mailto:hdjweb@gmail.com" method="post" enctype="text/plain">
+                <div class="form-row">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="Nome" required>
+                    <label for="cognome">Cognome:</label>
+                    <input type="text" id="cognome" name="Cognome" required>
+                </div>
+                <br>
+                <div class="form-row">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="Email" required>
+                </div>
+                <br>
+                <label for="chiarezza">Quanto è chiaro l'elaborato?</label>
+                <select id="chiarezza" name="Chiarezza">
+                    <option value="Molto chiaro">Molto chiaro</option>
+                    <option value="Abbastanza chiaro">Abbastanza chiaro</option>
+                    <option value="Poco chiaro">Poco chiaro</option>
+                    <option value="Per niente chiaro">Per niente chiaro</option>
+                </select>
+                <label for="completezza">Quanto è completo il contenuto?</label>
+                <select id="completezza" name="Completezza">
+                    <option value="Molto completo">Molto completo</option>
+                    <option value="Abbastanza completo">Abbastanza completo</option>
+                    <option value="Poco completo">Poco completo</option>
+                    <option value="Incompleto">Incompleto</option>
+                </select>
+                <label for="utilità">Quanto è utile per te?</label>
+                <select id="utilità" name="Utilità">
+                    <option value="Molto utile">Molto utile</option>
+                    <option value="Abbastanza utile">Abbastanza utile</option>
+                    <option value="Poco utile">Poco utile</option>
+                    <option value="Inutile">Inutile</option>
+                </select>
+                <label for="feedback">Feedback aggiuntivo:</label>
+                <textarea id="feedback" name="Feedback"></textarea>
+                <br>
+                <button type="submit">Invia Valutazione</button>
             </form>
         </section>
     </main>
-
-    <footer>
-        <p>&copy; 2025 Gestione del Rischio Aeronautico. Tutti i diritti riservati.</p>
-    </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
