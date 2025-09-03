@@ -136,14 +136,6 @@ ul {
     box-sizing: border-box;
 }
 
-footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #004d99;
-    color: white;
-    margin-top: 2rem;
-}
-
 /* --- Sezione Regola Generale --- */
 .formula-text-centered {
     text-align: center;
@@ -197,7 +189,7 @@ footer {
     font-size: 1.1rem;
 }
 
-/* --- Tabelle del Rischio --- */
+/* --- Sezione Tabelle di Rischio --- */
 .risk-images {
     display: grid;
     grid-template-columns: 1fr;
@@ -267,8 +259,84 @@ footer {
     .risk-images { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Giustifica testo sezione Best Practice Aeronautiche */
+/* --- Sezione Best Practice --- */
 #practice p,
 #practice ul {
     text-align: justify;
 }
+
+
+/* Sezione Download - paragrafo giustificato */
+#download p {
+    text-align: justify;
+    line-height: 1.6;
+    margin: 0 auto 1.3rem auto;
+    font-size: 1.1rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+    #download p {
+        max-width: 450px;
+        -webkit-line-clamp: 5; /* forza 5 righe */
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    #download p {
+        max-width: 90%;
+        -webkit-line-clamp: 11; /* aumenta a 11 righe */
+    }
+}
+/* --- Sezione Valutazione Finale --- */
+#valutazione p {
+    text-align: justify;
+    line-height: 1.6;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1.1rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+    #valutazione p {
+        max-width: 600px;
+        -webkit-line-clamp: 3; /* Desktop rimane 3 righe */
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    #valutazione p {
+        max-width: 100%;
+        -webkit-line-clamp: 9; /* Mobile aumentato a 9 righe */
+    }
+}
+
+/* Form Valutazione Finale */
+#valutazione form {
+    padding: 20px; /* Spazio interno della sezione */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#valutazione form input,
+#valutazione form select,
+#valutazione form textarea {
+    width: 100%; /* Occupano tutta la larghezza disponibile */
+    box-sizing: border-box;
+    padding: 8px 10px;
+    margin: 5px 0 15px 0; /* Distanza tra i campi */
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+#home p {
+    text-align: justify;
+}S
