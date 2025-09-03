@@ -7,12 +7,20 @@ document.addEventListener('DOMContentLoaded', function() {
     function showSection(sectionId) {
         sections.forEach(section => section.classList.remove('active'));
         const activeSection = document.getElementById(sectionId);
-        if (activeSection) activeSection.classList.add('active');
+        if (activeSection) {
+            activeSection.classList.add('active');
+            
+            // NUOVO: Aggiorna l'URL nella barra degli indirizzi
+            const newUrl = `#${sectionId}`;
+            history.pushState(null, '', newUrl);
+        }
     }
 
     function setActiveLink(link) {
         navLinks.forEach(item => item.classList.remove('active'));
-        link.classList.add('active');
+        if (link) {
+            link.classList.add('active');
+        }
     }
 
     navToggle.addEventListener('click', () => navMenu.classList.toggle('active'));
@@ -26,9 +34,18 @@ document.addEventListener('DOMContentLoaded', function() {
             if (navMenu.classList.contains('active')) navMenu.classList.remove('active');
         });
     });
+    
+    // NUOVO: Gestione iniziale dell'URL e del caricamento
+    const initialSectionId = window.location.hash.substring(1) || 'home';
+    showSection(initialSectionId);
+    setActiveLink(document.querySelector(`[data-section="${initialSectionId}"]`));
 
-    showSection('home');
-    setActiveLink(document.querySelector('[data-section="home"]'));
+    // NUOVO: Gestione del tasto "Indietro" del browser
+    window.addEventListener('popstate', function(event) {
+        const sectionIdFromUrl = window.location.hash.substring(1) || 'home';
+        showSection(sectionIdFromUrl);
+        setActiveLink(document.querySelector(`[data-section="${sectionIdFromUrl}"]`));
+    });
 
     // --- Calcolo del Rischio ---
     const calculateBtn = document.getElementById('calcola-btn');
@@ -108,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-     // --- Lightbox per immagini tabelle ---
+    // --- Lightbox per immagini tabelle ---
     const riskImages = document.querySelectorAll('.risk-images img');
     const overlay = document.createElement('div');
     overlay.classList.add('risk-overlay');
@@ -126,3 +143,31 @@ document.addEventListener('DOMContentLoaded', function() {
     overlay.addEventListener('click', () => overlay.classList.remove('active'));
 });
 
+// --- Valutazione Finale per mailto ---
+const valutazioneForm = document.querySelector('#valutazione form');
+if (valutazioneForm) {
+    valutazioneForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nome = document.getElementById('nome').value.trim();
+        const cognome = document.getElementById('cognome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const chiarezza = document.getElementById('chiarezza').value;
+        const completezza = document.getElementById('completezza').value;
+        const utilita = document.getElementById('utilità').value;
+        const feedback = document.getElementById('feedback').value.trim();
+
+        const subject = `Feedback lasciato da ${nome} ${cognome}`;
+        const body =
+            `Nome: ${nome}\n` +
+            `Cognome: ${cognome}\n` +
+            `Email: ${email}\n` +
+            `Quanto è chiaro l'elaborato: ${chiarezza}\n` +
+            `Quanto è completo il contenuto: ${completezza}\n` +
+            `Quanto è utile per te: ${utilita}\n` +
+            `Feedback aggiuntivo: ${feedback}`;
+
+        const mailtoLink = `mailto:hdjweb@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
+    });
+}
