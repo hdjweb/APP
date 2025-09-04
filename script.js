@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (activeSection) {
             activeSection.classList.add('active');
             
-            // NUOVO: Aggiorna l'URL nella barra degli indirizzi
+            // Aggiorna l'URL nella barra degli indirizzi
             const newUrl = `#${sectionId}`;
             history.pushState(null, '', newUrl);
         }
@@ -35,12 +35,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // NUOVO: Gestione iniziale dell'URL e del caricamento
+    // Gestione iniziale dell'URL e del caricamento
     const initialSectionId = window.location.hash.substring(1) || 'home';
     showSection(initialSectionId);
     setActiveLink(document.querySelector(`[data-section="${initialSectionId}"]`));
 
-    // NUOVO: Gestione del tasto "Indietro" del browser
+    // Gestione del tasto "Indietro" del browser
     window.addEventListener('popstate', function(event) {
         const sectionIdFromUrl = window.location.hash.substring(1) || 'home';
         showSection(sectionIdFromUrl);
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 coloreSfondo = '#ff3300';
             }
 
-            // Inserisco il testo giustificato e la parte iniziale in grassetto e sottolineata
+            // Testo giustificato e la parte iniziale in grassetto e sottolineato
             resultBox.innerHTML = `<span style="font-weight:900; text-decoration:underline;">${testo.split(':')[0]}</span>: ${testo.split(':')[1]}`;
             resultBox.style.backgroundColor = coloreSfondo;
             resultBox.style.color = '#000';
