@@ -115,7 +115,7 @@
             <p>In questa pagina sono riportati alcuni suggerimenti da adottare in un’azienda aeronautica per prevenire o ridurre i rischi legati alla sicurezza e alla privacy:</p>
             
             <ul>
-                <li><strong>Miglioramento con􀆟nuo sulla base di L.V.S. e O.C.S.I.:</strong> Garantire efficacia e conformità agli standard di sicurezza aeronautica, affrontare nuove minacce e vulnerabilità, e rispondere adeguatamente ai requisiti normativi e ai possibili attacchi di Cyber Security.</li>
+                <li><strong>Miglioramento continuo sulla base di L.V.S. e O.C.S.I.:</strong> Garantire efficacia e conformità agli standard di sicurezza aeronautica, affrontare nuove minacce e vulnerabilità, e rispondere adeguatamente ai requisiti normativi e ai possibili attacchi di Cyber Security.</li>
                 <li><strong>Formazione continua e specializzata:</strong> Organizzare corsi incentrati sulle procedure e le politiche di LVS, per offrire maggiore consapevolezza in ambito di sicurezza informatica e regolamentazione privacy nel settore aeronautico all’intera popolazione aziendale.</li>
                 <li><strong>Controllo rigoroso degli accessi fisici:</strong> Adottare l'autenticazione biometrica e la limitazione dei privilegi utente, con monitoraggio continuo e audit interni.</li>
                 <li><strong>Definizione di Recovery Plan e Incident Response:</strong> Elaborare piani specifici per il settore aeronautico, aerospaziale e della difesa, per garantire continuità operativa e sicurezza dei dati trattati ed elaborati.</li>
@@ -134,51 +134,71 @@
         
         <section id="valutazione" class="page-section">
             <h2>Valutazione Finale</h2>
-            <p>Per migliorare i contenuti e valutare il lavoro, si prega di rispondere ad alcune semplici domande. Il feedback finale verrà inviato all'indirizzo email del creatore della pagina, garantendo il pieno rispetto della privacy.</p>
-            <form action="mailto:hdjweb@gmail.com" method="post" enctype="text/plain">
-                <div class="form-row">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="Nome" required>
-                    <label for="cognome">Cognome:</label>
-                    <input type="text" id="cognome" name="Cognome" required>
-                </div>
-                <br>
-                <div class="form-row">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="Email" required>
-                </div>
-                <br>
-                <label for="chiarezza">Quanto è chiaro l'elaborato?</label>
-                <select id="chiarezza" name="Chiarezza">
-                    <option value="Molto chiaro">Molto chiaro</option>
-                    <option value="Abbastanza chiaro">Abbastanza chiaro</option>
-                    <option value="Poco chiaro">Poco chiaro</option>
-                    <option value="Per niente chiaro">Per niente chiaro</option>
-                </select>
-                <label for="completezza">Quanto è completo il contenuto?</label>
-                <select id="completezza" name="Completezza">
-                    <option value="Molto completo">Molto completo</option>
-                    <option value="Abbastanza completo">Abbastanza completo</option>
-                    <option value="Poco completo">Poco completo</option>
-                    <option value="Incompleto">Incompleto</option>
-                </select>
-                <label for="utilità">Quanto è utile per te?</label>
-                <select id="utilità" name="Utilità">
-                    <option value="Molto utile">Molto utile</option>
-                    <option value="Abbastanza utile">Abbastanza utile</option>
-                    <option value="Poco utile">Poco utile</option>
-                    <option value="Inutile">Inutile</option>
-                </select>
-                <label for="feedback">Feedback aggiuntivo:</label>
-                <textarea id="feedback" name="Feedback"></textarea>
-                <br>
-                <button type="submit">Invia Valutazione</button>
-            </form>
+            <div class="form-card">
+                <p>Per migliorare i contenuti e valutare il lavoro, si prega di rispondere ad alcune semplici domande. Il feedback finale verrà inviato all'indirizzo email del creatore della pagina, garantendo il pieno rispetto della privacy.</p>
+                <form>
+
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" placeholder="Inserisci il tuo nome" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cognome">Cognome</label>
+                        <input type="text" id="cognome" name="cognome" placeholder="Inserisci il tuo cognome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Indirizzo Email</label>
+                        <input type="email" id="email" name="email" placeholder="nome@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="chiarezza">Quanto è chiaro l'elaborato?</label>
+                        <select id="chiarezza" name="chiarezza" required>
+                            <option value="">Seleziona...</option>
+                            <option value="1">1 - Poco chiaro</option>
+                            <option value="2">2</option>
+                            <option value="3">3 - Abbastanza</option>
+                            <option value="4">4</option>
+                            <option value="5">5 - Molto chiaro</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="completezza">Quanto è completo il contenuto?</label>
+                        <select id="completezza" name="completezza" required>
+                            <option value="">Seleziona...</option>
+                            <option value="1">1 - Poco completo</option>
+                            <option value="2">2</option>
+                            <option value="3">3 - Abbastanza</option>
+                            <option value="4">4</option>
+                            <option value="5">5 - Molto completo</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="utilità">Quanto è utile per te?</label>
+                        <select id="utilità" name="utilità" required>
+                            <option value="">Seleziona...</option>
+                            <option value="1">1 - Poco utile</option>
+                            <option value="2">2</option>
+                            <option value="3">3 - Abbastanza</option>
+                            <option value="4">4</option>
+                            <option value="5">5 - Molto utile</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="feedback">Feedback aggiuntivo</label>
+                        <textarea id="feedback" name="feedback" placeholder="Scrivi qui il tuo commento..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Invia Feedback</button>
+                </form>
+            </div>
         </section>
     </main>
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
