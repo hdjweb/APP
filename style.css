@@ -381,3 +381,27 @@ ul {
 .btn-submit:hover {
     background: #005fa3;
 }
+/* Privacy checkbox*/
+.privacy-container {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.privacy-container input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px; 
+    height: 18px; 
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.privacy-container label a {
+    color: #007bff; 
+    text-decoration: none;
+}
+
+.privacy-container label a:hover {
+    text-decoration: underline;
+}
